@@ -2,36 +2,21 @@ export async function fetchResourceFromEHR(
   axiosInstance: any,
   requestUrl: string
 ): Promise<any> {
-  console.log("Mock fetchResourceFromEHR called with URL:", requestUrl);
-
-  if (requestUrl.includes("Patient")) {
+  try {
+    console.log("Fetching from FHIR server:", requestUrl);
+    const response = await axiosInstance.get(requestUrl);
+    return response.data;
+  } catch (error) {
+    console.error('FHIR API Error:', error);
+    
+    // Return a proper FHIR OperationOutcome for errors
     return {
-      resourceType: "Patient",
-      id: "mock-patient-123",
-      name: [{ given: ["Jane"], family: "Doe" }],
-      gender: "female",
-      birthDate: "1985-05-05"
+      resourceType: "OperationOutcome",
+      issue: [{
+        severity: "error",
+        code: "processing",
+        diagnostics: `Failed to fetch resource: ${error instanceof Error ? error.message : 'Unknown error'}`
+      }]
     };
   }
-
-  if (requestUrl.includes("Observation")) {
-    return {
-      resourceType: "Bundle",
-      entry: [
-        {
-          resource: {
-            resourceType: "Observation",
-            code: { text: "Blood Pressure" },
-            valueQuantity: { value: 120, unit: "mmHg" },
-            effectiveDateTime: "2024-01-01T10:00:00Z"
-          }
-        }
-      ]
-    };
-  }
-
-  return {
-    resourceType: "OperationOutcome",
-    issue: [{ severity: "information", diagnostics: "Mock data used" }]
-  };
 }
