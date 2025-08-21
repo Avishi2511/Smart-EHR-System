@@ -11,6 +11,7 @@ import {
 import PatientSummary from "@/pages/PatientSummary/PatientSummary.tsx";
 import EmbeddedApp from "@/pages/EmbeddedApp/EmbeddedApp.tsx";
 import AuthCallback from "@/pages/AuthCallback/AuthCallback.tsx";
+import CardManagement from "@/pages/CardManagement/CardManagement.tsx";
 import Home from "@/layout/Home.tsx";
 import FhirServerContextProvider from "@/contexts/FhirServerContext.tsx";
 import CloseSnackbar from "@/components/CloseSnackbar.tsx";
@@ -32,6 +33,10 @@ function App() {
         {
           path: "embedded",
           element: <EmbeddedApp />,
+        },
+        {
+          path: "card-management",
+          element: <CardManagement />,
         },
       ],
     },

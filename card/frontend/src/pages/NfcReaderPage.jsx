@@ -77,16 +77,16 @@ export default function NfcReaderPage() {
                             <div className="flex items-center gap-3 p-3 rounded-lg bg-muted/50">
                                 <User className="h-5 w-5 text-blue-600" />
                                 <div>
-                                    <p className="text-sm font-medium text-muted-foreground">Name</p>
+                                    <p className="text-sm font-medium text-muted-foreground">Patient Name</p>
                                     <p className="font-semibold">{data.name}</p>
                                 </div>
                             </div>
                             
                             <div className="flex items-center gap-3 p-3 rounded-lg bg-muted/50">
-                                <Calendar className="h-5 w-5 text-green-600" />
+                                <User className="h-5 w-5 text-purple-600" />
                                 <div>
-                                    <p className="text-sm font-medium text-muted-foreground">Age</p>
-                                    <p className="font-semibold">{data.age} years</p>
+                                    <p className="text-sm font-medium text-muted-foreground">Patient ID</p>
+                                    <p className="font-semibold">{data.patientId}</p>
                                 </div>
                             </div>
                             
@@ -103,6 +103,14 @@ export default function NfcReaderPage() {
                                 <div>
                                     <p className="text-sm font-medium text-muted-foreground">Allergies</p>
                                     <p className="font-semibold">{data.allergies || 'None reported'}</p>
+                                </div>
+                            </div>
+                            
+                            <div className="flex items-center gap-3 p-3 rounded-lg bg-muted/50">
+                                <Calendar className="h-5 w-5 text-green-600" />
+                                <div>
+                                    <p className="text-sm font-medium text-muted-foreground">Emergency Contact</p>
+                                    <p className="font-semibold">{data.emergencyContact}</p>
                                 </div>
                             </div>
                             

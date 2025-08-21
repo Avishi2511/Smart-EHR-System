@@ -1,4 +1,4 @@
-import { AppWindow, User } from "lucide-react";
+import { AppWindow, User, CreditCard } from "lucide-react";
 import DataSaverOnIcon from "@mui/icons-material/DataSaverOn";
 import SideBarItem from "@/layout/Sidebar/SideBarItem.tsx";
 import SideBarLogo from "@/layout/Sidebar/SideBarLogo.tsx";
@@ -34,6 +34,17 @@ function SideBar() {
           activePath={activePath}
           onSwitchActivePage={switchActivePage}
         />
+
+        <SideBarItem
+          sidebarItem={{
+            title: "Emergency Card Reader",
+            path: "/card-management",
+            Icon: <CreditCard />,
+          }}
+          activePath={activePath}
+          onSwitchActivePage={switchActivePage}
+        />
+
         {isEmbeddedView ? (
           <SideBarItem
             sidebarItem={{

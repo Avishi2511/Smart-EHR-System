@@ -8,10 +8,11 @@ import { Label } from '../components/ui/label';
 
 export default function NfcWriterPage() {
     const [form, setForm] = useState({
+        patientId: '',
         name: '',
-        age: '',
         bloodType: '',
         allergies: '',
+        emergencyContact: '',
         chronicConditions: ''
     });
     const [status, setStatus] = useState('');
@@ -48,6 +49,21 @@ export default function NfcWriterPage() {
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-2">
+                                <Label htmlFor="patientId" className="flex items-center gap-2">
+                                    <User className="h-4 w-4" />
+                                    Patient ID
+                                </Label>
+                                <Input
+                                    id="patientId"
+                                    name="patientId"
+                                    value={form.patientId}
+                                    onChange={handleChange}
+                                    placeholder="Enter patient ID (e.g., patient-001)"
+                                    required
+                                />
+                            </div>
+                            
+                            <div className="space-y-2">
                                 <Label htmlFor="name" className="flex items-center gap-2">
                                     <User className="h-4 w-4" />
                                     Full Name
@@ -58,22 +74,6 @@ export default function NfcWriterPage() {
                                     value={form.name}
                                     onChange={handleChange}
                                     placeholder="Enter full name"
-                                    required
-                                />
-                            </div>
-                            
-                            <div className="space-y-2">
-                                <Label htmlFor="age" className="flex items-center gap-2">
-                                    <Calendar className="h-4 w-4" />
-                                    Age
-                                </Label>
-                                <Input
-                                    id="age"
-                                    name="age"
-                                    type="number"
-                                    value={form.age}
-                                    onChange={handleChange}
-                                    placeholder="Enter age"
                                     required
                                 />
                             </div>
@@ -105,6 +105,21 @@ export default function NfcWriterPage() {
                                 value={form.allergies}
                                 onChange={handleChange}
                                 placeholder="List any known allergies"
+                            />
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label htmlFor="emergencyContact" className="flex items-center gap-2">
+                                <Calendar className="h-4 w-4" />
+                                Emergency Contact
+                            </Label>
+                            <Input
+                                id="emergencyContact"
+                                name="emergencyContact"
+                                value={form.emergencyContact}
+                                onChange={handleChange}
+                                placeholder="Emergency contact number (e.g., +91-98765-43210)"
+                                required
                             />
                         </div>
 
