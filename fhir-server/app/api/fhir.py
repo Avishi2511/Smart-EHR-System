@@ -15,6 +15,7 @@ from fhir.resources.medicationrequest import MedicationRequest
 from fhir.resources.practitioner import Practitioner
 import json
 from datetime import date, datetime
+from decimal import Decimal
 
 router = APIRouter()
 
@@ -33,7 +34,7 @@ SUPPORTED_RESOURCES = {
 }
 
 def serialize_dates(obj):
-    """Recursively convert date/datetime objects to strings for JSON serialization"""
+    """Recursively convert date/datetime/decimal objects to JSON serializable types"""
     if isinstance(obj, dict):
         return {key: serialize_dates(value) for key, value in obj.items()}
     elif isinstance(obj, list):
@@ -42,6 +43,8 @@ def serialize_dates(obj):
         return obj.isoformat()
     elif isinstance(obj, datetime):
         return obj.isoformat()
+    elif isinstance(obj, Decimal):
+        return float(obj)
     else:
         return obj
 

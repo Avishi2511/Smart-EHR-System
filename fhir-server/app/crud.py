@@ -73,8 +73,13 @@ def search_resources(
     
     elif resource_type == "Observation":
         if 'patient' in search_params:
+            # Handle both "patient-002" and "Patient/patient-002" formats
+            patient_param = search_params['patient']
             query = query.filter(
-                func.json_extract(FHIRResource.data, '$.subject.reference').like(f"%{search_params['patient']}%")
+                or_(
+                    func.json_extract(FHIRResource.data, '$.subject.reference').like(f"%{patient_param}%"),
+                    func.json_extract(FHIRResource.data, '$.subject.reference').like(f"%Patient/{patient_param}%")
+                )
             )
         
         if 'code' in search_params:
@@ -89,13 +94,78 @@ def search_resources(
     
     elif resource_type == "Condition":
         if 'patient' in search_params:
+            # Handle both "patient-002" and "Patient/patient-002" formats
+            patient_param = search_params['patient']
             query = query.filter(
-                func.json_extract(FHIRResource.data, '$.subject.reference').like(f"%{search_params['patient']}%")
+                or_(
+                    func.json_extract(FHIRResource.data, '$.subject.reference').like(f"%{patient_param}%"),
+                    func.json_extract(FHIRResource.data, '$.subject.reference').like(f"%Patient/{patient_param}%")
+                )
             )
         
         if 'code' in search_params:
             query = query.filter(
                 func.json_extract(FHIRResource.data, '$.code.text').like(f"%{search_params['code']}%")
+            )
+    
+    elif resource_type == "AllergyIntolerance":
+        if 'patient' in search_params:
+            # Handle both "patient-002" and "Patient/patient-002" formats
+            patient_param = search_params['patient']
+            query = query.filter(
+                or_(
+                    func.json_extract(FHIRResource.data, '$.patient.reference').like(f"%{patient_param}%"),
+                    func.json_extract(FHIRResource.data, '$.patient.reference').like(f"%Patient/{patient_param}%")
+                )
+            )
+    
+    elif resource_type == "Encounter":
+        if 'patient' in search_params:
+            # Handle both "patient-002" and "Patient/patient-002" formats
+            patient_param = search_params['patient']
+            query = query.filter(
+                or_(
+                    func.json_extract(FHIRResource.data, '$.subject.reference').like(f"%{patient_param}%"),
+                    func.json_extract(FHIRResource.data, '$.subject.reference').like(f"%Patient/{patient_param}%")
+                )
+            )
+        
+        if 'status' in search_params:
+            query = query.filter(
+                func.json_extract(FHIRResource.data, '$.status') == search_params['status']
+            )
+    
+    elif resource_type == "Immunization":
+        if 'patient' in search_params:
+            # Handle both "patient-002" and "Patient/patient-002" formats
+            patient_param = search_params['patient']
+            query = query.filter(
+                or_(
+                    func.json_extract(FHIRResource.data, '$.patient.reference').like(f"%{patient_param}%"),
+                    func.json_extract(FHIRResource.data, '$.patient.reference').like(f"%Patient/{patient_param}%")
+                )
+            )
+    
+    elif resource_type == "MedicationRequest":
+        if 'patient' in search_params:
+            # Handle both "patient-002" and "Patient/patient-002" formats
+            patient_param = search_params['patient']
+            query = query.filter(
+                or_(
+                    func.json_extract(FHIRResource.data, '$.subject.reference').like(f"%{patient_param}%"),
+                    func.json_extract(FHIRResource.data, '$.subject.reference').like(f"%Patient/{patient_param}%")
+                )
+            )
+    
+    elif resource_type == "Procedure":
+        if 'patient' in search_params:
+            # Handle both "patient-002" and "Patient/patient-002" formats
+            patient_param = search_params['patient']
+            query = query.filter(
+                or_(
+                    func.json_extract(FHIRResource.data, '$.subject.reference').like(f"%{patient_param}%"),
+                    func.json_extract(FHIRResource.data, '$.subject.reference').like(f"%Patient/{patient_param}%")
+                )
             )
     
     elif resource_type == "Practitioner":

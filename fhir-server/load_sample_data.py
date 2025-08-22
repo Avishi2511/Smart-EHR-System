@@ -259,9 +259,15 @@ sample_encounters = [
         "resourceType": "Encounter",
         "id": "encounter-001",
         "status": "finished",
-        "class": {"code": "outpatient"},
+        "class": [{
+            "coding": [{
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+            }]
+        }],
         "subject": {"reference": "Patient/patient-001"},
-        "period": {
+        "actualPeriod": {
             "start": "2024-01-01T10:00:00Z",
             "end": "2024-01-01T11:00:00Z"
         }
@@ -270,9 +276,15 @@ sample_encounters = [
         "resourceType": "Encounter",
         "id": "encounter-002",
         "status": "finished",
-        "class": {"code": "outpatient"},
+        "class": [{
+            "coding": [{
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+            }]
+        }],
         "subject": {"reference": "Patient/patient-002"},
-        "period": {
+        "actualPeriod": {
             "start": "2024-01-02T14:00:00Z",
             "end": "2024-01-02T15:30:00Z"
         }
@@ -286,7 +298,11 @@ sample_medication_requests = [
         "id": "med-req-001",
         "status": "active",
         "intent": "order",
-        "medicationCodeableConcept": {"text": "Amlodipine 5mg (Amlong)"},
+        "medication": {
+            "concept": {
+                "text": "Amlodipine 5mg (Amlong)"
+            }
+        },
         "subject": {"reference": "Patient/patient-001"},
         "dosageInstruction": [{"text": "Take once daily in the morning"}]
     },
@@ -295,7 +311,11 @@ sample_medication_requests = [
         "id": "med-req-002",
         "status": "active",
         "intent": "order",
-        "medicationCodeableConcept": {"text": "Metformin 500mg (Glycomet)"},
+        "medication": {
+            "concept": {
+                "text": "Metformin 500mg (Glycomet)"
+            }
+        },
         "subject": {"reference": "Patient/patient-002"},
         "dosageInstruction": [{"text": "Take twice daily with meals"}]
     },
@@ -304,7 +324,11 @@ sample_medication_requests = [
         "id": "med-req-003",
         "status": "active",
         "intent": "order",
-        "medicationCodeableConcept": {"text": "Vitamin D3 60000 IU (Calcirol)"},
+        "medication": {
+            "concept": {
+                "text": "Vitamin D3 60000 IU (Calcirol)"
+            }
+        },
         "subject": {"reference": "Patient/patient-004"},
         "dosageInstruction": [{"text": "Take once weekly"}]
     },
@@ -313,7 +337,11 @@ sample_medication_requests = [
         "id": "med-req-004",
         "status": "active",
         "intent": "order",
-        "medicationCodeableConcept": {"text": "Levothyroxine 50mcg (Thyronorm)"},
+        "medication": {
+            "concept": {
+                "text": "Levothyroxine 50mcg (Thyronorm)"
+            }
+        },
         "subject": {"reference": "Patient/patient-005"},
         "dosageInstruction": [{"text": "Take once daily on empty stomach"}]
     },
@@ -322,7 +350,11 @@ sample_medication_requests = [
         "id": "med-req-005",
         "status": "active",
         "intent": "order",
-        "medicationCodeableConcept": {"text": "Iron + Folic Acid (Fefol)"},
+        "medication": {
+            "concept": {
+                "text": "Iron + Folic Acid (Fefol)"
+            }
+        },
         "subject": {"reference": "Patient/patient-006"},
         "dosageInstruction": [{"text": "Take once daily after meals"}]
     },
@@ -331,7 +363,11 @@ sample_medication_requests = [
         "id": "med-req-006",
         "status": "active",
         "intent": "order",
-        "medicationCodeableConcept": {"text": "Atorvastatin 20mg (Lipitor)"},
+        "medication": {
+            "concept": {
+                "text": "Atorvastatin 20mg (Lipitor)"
+            }
+        },
         "subject": {"reference": "Patient/patient-007"},
         "dosageInstruction": [{"text": "Take once daily at bedtime"}]
     },
@@ -340,7 +376,11 @@ sample_medication_requests = [
         "id": "med-req-007",
         "status": "active",
         "intent": "order",
-        "medicationCodeableConcept": {"text": "Glimepiride 2mg (Amaryl)"},
+        "medication": {
+            "concept": {
+                "text": "Glimepiride 2mg (Amaryl)"
+            }
+        },
         "subject": {"reference": "Patient/patient-002"},
         "dosageInstruction": [{"text": "Take once daily before breakfast"}]
     }
