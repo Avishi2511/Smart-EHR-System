@@ -1,6 +1,7 @@
 import { humanName } from "../../utils/misc.ts";
 import { useContext, useEffect } from "react";
 import { PatientContext } from "../../contexts/PatientContext.tsx";
+import { useSession } from "../../contexts/SessionContext.tsx";
 import useLauncherQuery from "../../hooks/useLauncherQuery.ts";
 import { useQuery } from "@tanstack/react-query";
 import { Bundle, Patient } from "fhir/r4";
@@ -14,32 +15,42 @@ import useFhirServerAxios from "@/hooks/useFhirServerAxios.ts";
 function PatientNavProfile() {
   const { query, launch, setQuery } = useLauncherQuery();
   const { serverUrl } = useSourceFhirServer();
+  const { isAuthenticated } = useSession();
 
   const { selectedPatient, setSelectedPatient } = useContext(PatientContext);
 
-  const patientId = launch.patient;
+  // Only load patient data if authenticated and a patient is already selected
+  const shouldLoadPatient = isAuthenticated && selectedPatient;
+  const patientId = shouldLoadPatient ? selectedPatient.id : null;
 
-  const queryUrl = patientId ? `/Patient/${patientId}` : "/Patient";
+  const queryUrl = patientId ? `/Patient/${patientId}` : null;
 
   const axiosInstance = useFhirServerAxios();
   const {
     data: resource,
     error,
     isLoading,
-  } = useQuery<Patient | Bundle>(["patientProfile", serverUrl, patientId], () =>
-    fetchResourceFromEHR(axiosInstance, queryUrl)
+  } = useQuery<Patient | Bundle>(
+    ["patientProfile", serverUrl, patientId], 
+    () => fetchResourceFromEHR(axiosInstance, queryUrl!),
+    {
+      enabled: Boolean(queryUrl && shouldLoadPatient), // Only run query if we should load patient
+    }
   );
 
   const newPatient = getResource<Patient>(resource, "Patient");
 
   useEffect(() => {
-    if (!newPatient) {
+    if (!newPatient || !shouldLoadPatient) {
       return;
     }
 
-    setSelectedPatient(newPatient);
-    setQuery({ ...query, patient: newPatient.id });
-  }, [newPatient]);
+    // Only update if the patient has changed
+    if (selectedPatient?.id !== newPatient.id) {
+      setSelectedPatient(newPatient);
+      setQuery({ ...query, patient: newPatient.id });
+    }
+  }, [newPatient, shouldLoadPatient]);
 
   return (
     <div className="flex items-center gap-3 h-16 px-3 bg-muted/80 rounded-lg">

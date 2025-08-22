@@ -15,35 +15,8 @@
  * limitations under the License.
  */
 
-import csiroLogo from "../../img/csiro-logo.png";
-import { Separator } from "@/components/ui/separator.tsx";
-
 function Footer() {
-  return (
-    <footer className="pt-5 pb-2.5 m-auto">
-      <div className="flex items-center gap-3.5">
-        <div className="flex items-center gap-x-2">
-          <div className="text-xs text-muted-foreground">Built by</div>
-          <img src={csiroLogo} alt="CSIRO Logo" className="h-7 w-7" />
-        </div>
-        <Separator orientation="vertical" className="h-6" />
-        <div className="text-xs">
-          <span className="text-muted-foreground">
-            The source code is available on{" "}
-            <a
-              href="https://github.com/aehrc/smart-ehr-launcher"
-              target="_blank"
-              rel="noreferrer"
-              className="underline font-semibold"
-            >
-              GitHub
-            </a>
-            .
-          </span>
-        </div>
-      </div>
-    </footer>
-  );
+  return null;
 }
 
 export default Footer;
