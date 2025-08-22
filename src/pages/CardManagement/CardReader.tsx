@@ -278,7 +278,7 @@ function CardReader() {
                     </div>
                   </div>
                   <Button 
-                    onClick={() => navigate(`/?patient=${fhirData.patient.id}`)} 
+                    onClick={() => navigate(`/patient-summary?patient=${fhirData.patient.id}`)} 
                     className="bg-green-600 hover:bg-green-700"
                   >
                     <ArrowRight className="mr-2 h-4 w-4" />

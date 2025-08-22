@@ -2,6 +2,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import ActivePageContextProvider from "@/contexts/ActivePageContext.tsx";
 import { SnackbarProvider } from "notistack";
 import PatientContextProvider from "@/contexts/PatientContext.tsx";
+import SessionContextProvider from "@/contexts/SessionContext.tsx";
 
 import {
   createBrowserRouter,
@@ -12,7 +13,10 @@ import PatientSummary from "@/pages/PatientSummary/PatientSummary.tsx";
 import EmbeddedApp from "@/pages/EmbeddedApp/EmbeddedApp.tsx";
 import AuthCallback from "@/pages/AuthCallback/AuthCallback.tsx";
 import CardManagement from "@/pages/CardManagement/CardManagement.tsx";
+import HomePage from "@/pages/HomePage/HomePage.tsx";
 import Home from "@/layout/Home.tsx";
+import StandaloneLayout from "@/layout/StandaloneLayout.tsx";
+import ProtectedRoute from "@/components/ProtectedRoute.tsx";
 import FhirServerContextProvider from "@/contexts/FhirServerContext.tsx";
 import CloseSnackbar from "@/components/CloseSnackbar.tsx";
 
@@ -22,12 +26,32 @@ function App() {
       path: "authcallback",
       element: <AuthCallback />,
     },
+    // Entry point - standalone HomePage
     {
       path: "/",
-      element: <Home />,
+      element: <StandaloneLayout />,
       children: [
         {
           path: "",
+          element: <HomePage />,
+        },
+      ],
+    },
+    // Main application - protected routes with full dashboard
+    {
+      path: "/app",
+      element: (
+        <ProtectedRoute>
+          <Home />
+        </ProtectedRoute>
+      ),
+      children: [
+        {
+          path: "",
+          element: <Navigate to="/app/dashboard" replace />,
+        },
+        {
+          path: "dashboard",
           element: <PatientSummary />,
         },
         {
@@ -49,19 +73,15 @@ function App() {
   return (
     <TooltipProvider delayDuration={100}>
       <SnackbarProvider maxSnack={1} action={CloseSnackbar}>
-        <FhirServerContextProvider>
-          
+        <SessionContextProvider>
+          <FhirServerContextProvider>
             <ActivePageContextProvider>
               <PatientContextProvider>
-                 
-                    
-                      <RouterProvider router={router} />
-                   
-                  
-
+                <RouterProvider router={router} />
               </PatientContextProvider>
             </ActivePageContextProvider>
-        </FhirServerContextProvider>
+          </FhirServerContextProvider>
+        </SessionContextProvider>
       </SnackbarProvider>
     </TooltipProvider>
   );

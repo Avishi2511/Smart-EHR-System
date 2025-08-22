@@ -6,6 +6,7 @@ import UserNavProfile from "@/layout/NavProfiles/UserNavProfile.tsx";
 import EncounterNavProfile from "@/layout/NavProfiles/EncounterNavProfile.tsx";
 import Header from "@/components/Header.tsx";
 import CopyButton from "@/components/CopyButton.tsx";
+import LogoutButton from "@/components/LogoutButton.tsx";
 import Footer from "@/components/ui/Footer.tsx";
 
 function DashboardLayout() {
@@ -17,6 +18,7 @@ function DashboardLayout() {
           <SideBarMobile />
           <div className="flex-grow" />
 
+          <LogoutButton />
           <span className=" -mr-2">
             <CopyButton
               link={window.location.href}
