@@ -128,5 +128,3 @@ Frontend runs at → **[http://localhost:5173](http://localhost:5173)**
 
 The **Smart-EHR-System** bridges the gap between **emergency response needs** and **comprehensive medical care**.
 With **offline-first smart card access** and **online FHIR integration**, it ensures healthcare providers always have the **right patient information at the right time**, even in disaster or low-connectivity environments.
-
-```
