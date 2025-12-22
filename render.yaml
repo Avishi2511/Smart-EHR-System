@@ -1,0 +1,50 @@
+# Render Blueprint for Smart EHR System
+# This file defines all services for deployment
+
+services:
+  # FHIR Server
+  - type: web
+    name: smart-ehr-fhir-server
+    runtime: python
+    region: oregon
+    plan: free
+    rootDir: fhir-server
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./fhir.db
+      - key: DEBUG
+        value: false
+      - key: CORS_ORIGINS
+        sync: false
+    healthCheckPath: /health
+    
+  # Backend API
+  - type: web
+    name: smart-ehr-backend
+    runtime: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./backend.db
+      - key: DEBUG
+        value: false
+      - key: FHIR_SERVER_URL
+        fromService:
+          type: web
+          name: smart-ehr-fhir-server
+          property: host
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: SUPABASE_BUCKET
+        value: medical-files
+      - key: CORS_ORIGINS
+        sync: false
+    healthCheckPath: /health

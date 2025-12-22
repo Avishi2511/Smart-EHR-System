@@ -37,3 +37,6 @@ redis==5.0.1
 # Utilities
 pydantic==2.7.4
 pydantic-settings==2.1.0
+
+# Supabase for cloud storage
+supabase==2.3.0

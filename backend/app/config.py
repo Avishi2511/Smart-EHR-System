@@ -20,6 +20,11 @@ class Settings(BaseSettings):
     FILE_STORAGE_PATH: str = "./storage/files"
     MAX_FILE_SIZE_MB: int = 50
     
+    # Supabase Storage Configuration (for cloud deployment)
+    SUPABASE_URL: str = ""
+    SUPABASE_KEY: str = ""
+    SUPABASE_BUCKET: str = "files"
+    
     # Redis Configuration
     REDIS_URL: str = "redis://localhost:6379/0"
     
