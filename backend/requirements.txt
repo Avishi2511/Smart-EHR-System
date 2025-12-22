@@ -35,8 +35,8 @@ celery==5.3.6
 redis==5.0.1
 
 # Utilities
-pydantic==2.7.4
-pydantic-settings==2.1.0
+pydantic==2.10.5
+pydantic-settings==2.7.1
 
 # Supabase for cloud storage
 supabase==2.3.0
