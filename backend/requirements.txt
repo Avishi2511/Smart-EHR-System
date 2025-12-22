@@ -24,7 +24,7 @@ pytesseract==0.3.10
 langchain==0.1.4
 langchain-community==0.0.16
 openai==1.10.0
-tiktoken==0.5.2
+tiktoken==0.8.0
 
 # HTTP client for FHIR
 httpx
