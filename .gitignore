@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+derivatives
+raw_nifti
+venv_adni
+__pycache__
+venv_fhir
+venv_adni

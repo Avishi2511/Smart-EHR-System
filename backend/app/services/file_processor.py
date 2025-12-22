@@ -6,8 +6,10 @@ from PIL import Image
 import pytesseract
 from docx import Document
 from app.config import settings
-from app.services.vector_db import vector_db
-from app.models.sql_models import File, VectorDocument
+from app.models.sql_models import File
+from app.services.fhir_extractor import fhir_extractor
+from app.services.fhir_resource_builder import fhir_resource_builder
+from app.services.fhir_service import fhir_service
 from sqlalchemy.orm import Session
 import logging
 logger = logging.getLogger(__name__)
@@ -15,8 +17,7 @@ class FileProcessor:
     """Service for processing uploaded files and extracting text"""
     
     def __init__(self):
-        self.chunk_size = settings.CHUNK_SIZE
-        self.chunk_overlap = settings.CHUNK_OVERLAP
+        pass
     
     def extract_text_from_pdf(self, file_path: str) -> str:
         """
@@ -109,59 +110,23 @@ class FileProcessor:
             logger.warning(f"Unsupported file type: {file_type}")
             return ""
     
-    def chunk_text(self, text: str) -> List[str]:
-        """
-        Split text into overlapping chunks
-        
-        Args:
-            text: Input text
-            
-        Returns:
-            List of text chunks
-        """
-        if not text:
-            return []
-        
-        chunks = []
-        start = 0
-        text_length = len(text)
-        
-        while start < text_length:
-            end = start + self.chunk_size
-            chunk = text[start:end]
-            
-            # Try to break at sentence boundary
-            if end < text_length:
-                # Look for sentence ending
-                last_period = chunk.rfind('.')
-                last_newline = chunk.rfind('\n')
-                break_point = max(last_period, last_newline)
-                
-                if break_point > self.chunk_size // 2:
-                    chunk = chunk[:break_point + 1]
-                    end = start + break_point + 1
-            
-            chunks.append(chunk.strip())
-            start = end - self.chunk_overlap
-        
-        logger.info(f"Split text into {len(chunks)} chunks")
-        return chunks
-    
     async def process_file(
         self,
         db: Session,
         file_id: str,
         patient_id: str,
+        fhir_patient_id: str,
         file_path: str,
         file_type: str
     ) -> bool:
         """
-        Process a file: extract text, chunk, embed, and store in vector DB
+        Process a file: extract text, extract FHIR resources, and store in FHIR server
         
         Args:
             db: Database session
             file_id: File ID
-            patient_id: Patient ID
+            patient_id: Patient ID (backend)
+            fhir_patient_id: FHIR patient ID
             file_path: Path to file
             file_type: Type of file
             
@@ -177,31 +142,48 @@ class FileProcessor:
                 logger.warning(f"No text extracted from file {file_id}")
                 return False
             
-            # Chunk text
-            chunks = self.chunk_text(text)
+            # Extract FHIR resources from text
+            extracted_data = fhir_extractor.extract_all_resources(text, fhir_patient_id)
             
-            if not chunks:
-                logger.warning(f"No chunks created from file {file_id}")
-                return False
+            resource_count = 0
             
-            # Add to vector database
-            vector_ids = vector_db.add_documents(
-                texts=chunks,
-                patient_id=patient_id,
-                file_id=file_id,
-                metadata=[{"chunk_index": i} for i in range(len(chunks))]
-            )
-            
-            # Store vector document records in SQL
-            for i, (chunk, vector_id) in enumerate(zip(chunks, vector_ids)):
-                vector_doc = VectorDocument(
-                    patient_id=patient_id,
-                    file_id=file_id,
-                    chunk_index=i,
-                    chunk_text=chunk,
-                    vector_id=vector_id
+            # Create Observation resources
+            for obs_data in extracted_data.get("observations", []):
+                observation = fhir_resource_builder.build_observation(
+                    observation_type=obs_data["type"],
+                    value=obs_data["value"],
+                    patient_id=fhir_patient_id,
+                    effective_date=obs_data.get("date")
                 )
-                db.add(vector_doc)
+                
+                result = await fhir_service.create_observation(observation)
+                if result:
+                    resource_count += 1
+            
+            # Create Condition resources
+            for cond_data in extracted_data.get("conditions", []):
+                condition = fhir_resource_builder.build_condition(
+                    code_text=cond_data["code_text"],
+                    patient_id=fhir_patient_id,
+                    clinical_status=cond_data.get("status", "active"),
+                    onset_date=cond_data.get("onset_date")
+                )
+                
+                result = await fhir_service.create_condition(condition)
+                if result:
+                    resource_count += 1
+            
+            # Create MedicationRequest resources
+            for med_data in extracted_data.get("medications", []):
+                medication_request = fhir_resource_builder.build_medication_request(
+                    medication_text=med_data["medication_text"],
+                    patient_id=fhir_patient_id,
+                    status=med_data.get("status", "active")
+                )
+                
+                result = await fhir_service.create_medication_request(medication_request)
+                if result:
+                    resource_count += 1
             
             # Update file as processed
             file_record = db.query(File).filter(File.id == file_id).first()
@@ -211,7 +193,7 @@ class FileProcessor:
             
             db.commit()
             
-            logger.info(f"Successfully processed file {file_id} with {len(chunks)} chunks")
+            logger.info(f"Successfully processed file {file_id} - created {resource_count} FHIR resources")
             return True
             
         except Exception as e:

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { CreditCard, Loader2, Heart, AlertTriangle } from 'lucide-react';
 import { readCardData } from '@/api/cardApi';
 import { fetchPatientDataFromFhir, checkFhirServerStatus } from '@/api/fhirPatientApi';
@@ -12,7 +12,7 @@ import useLauncherQuery from '@/hooks/useLauncherQuery';
 function HomePage() {
   const [status, setStatus] = useState('');
   const [loading, setLoading] = useState(false);
-  
+
   const { setSelectedPatient } = useContext(PatientContext);
   const { login, isAuthenticated } = useSession();
   const navigate = useNavigate();
@@ -28,25 +28,25 @@ function HomePage() {
   const handleScanCard = async () => {
     setLoading(true);
     setStatus('⏳ Waiting for card...');
-    
+
     try {
       // Step 1: Read card data
       const res = await readCardData();
       setStatus('✅ Card data loaded successfully');
-      
+
       // Step 2: Check if FHIR server is online
       const serverOnline = await checkFhirServerStatus();
-      
+
       if (serverOnline && res.data.patientId) {
         // Step 3: Fetch patient data and navigate to dashboard
         try {
           const fhirRes = await fetchPatientDataFromFhir(res.data.patientId);
-          
+
           if (fhirRes.patient) {
             // Set patient in context and update launch parameters
             setSelectedPatient(fhirRes.patient);
             setQuery({ patient: fhirRes.patient.id });
-            
+
             // Login to session and navigate to main application
             login();
             navigate('/app/dashboard');
@@ -63,7 +63,46 @@ function HomePage() {
     } catch (err: any) {
       setStatus(`❌ ${err.response?.data?.error || err.message}`);
     }
-    
+
+    setLoading(false);
+  };
+
+  // TEMPORARY BYPASS: Direct access without smart card (for development only)
+  const handleBypassLogin = async (patientId: string) => {
+    setLoading(true);
+    setStatus(`⏳ Loading patient ${patientId}...`);
+
+    try {
+      // Check if FHIR server is online
+      const serverOnline = await checkFhirServerStatus();
+
+      if (!serverOnline) {
+        setStatus('❌ Database offline - Cannot load patient dashboard');
+        setLoading(false);
+        return;
+      }
+
+      // Fetch patient data directly
+      const fhirRes = await fetchPatientDataFromFhir(patientId);
+
+      if (fhirRes.patient) {
+        setStatus('✅ Patient data loaded successfully');
+
+        // Set patient in context and update launch parameters
+        setSelectedPatient(fhirRes.patient);
+        setQuery({ patient: fhirRes.patient.id });
+
+        // Login to session and navigate to main application
+        login();
+        navigate('/app/dashboard');
+      } else {
+        setStatus('❌ Patient not found in database');
+      }
+    } catch (err: any) {
+      console.error('Bypass login error:', err);
+      setStatus(`❌ ${err.response?.data?.error || err.message || 'Failed to load patient data'}`);
+    }
+
     setLoading(false);
   };
 
@@ -82,9 +121,9 @@ function HomePage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            <Button 
-              onClick={handleScanCard} 
-              disabled={loading} 
+            <Button
+              onClick={handleScanCard}
+              disabled={loading}
               className="w-full h-14 text-lg"
               size="lg"
             >
@@ -97,6 +136,37 @@ function HomePage() {
                 <>
                   <CreditCard className="mr-2 h-5 w-5" />
                   Scan the Card
+                </>
+              )}
+            </Button>
+
+            {/* TEMPORARY BYPASS BUTTON - FOR DEVELOPMENT ONLY */}
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-background px-2 text-muted-foreground">
+                  Development Only
+                </span>
+              </div>
+            </div>
+
+            <Button
+              onClick={() => handleBypassLogin('patient-002')}
+              disabled={loading}
+              variant="outline"
+              className="w-full h-12 text-base border-amber-300 bg-amber-50 hover:bg-amber-100 text-amber-900"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Loading...
+                </>
+              ) : (
+                <>
+                  <AlertTriangle className="mr-2 h-5 w-5" />
+                  DEV: Quick Access Patient 002 (Priya Sharma)
                 </>
               )}
             </Button>

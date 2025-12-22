@@ -1,0 +1,150 @@
+{
+  "patient_id": "033S0567",
+  "prediction_time": "2025-12-22T13:03:38.987179",
+  "last_visit": {
+    "date": "20090615",
+    "scores": {
+      "MMSE": 17.605989456176758,
+      "CDR_Global": 1.0,
+      "CDR_SOB": 7.43640661239624,
+      "ADAS_Cog": 28.91935920715332
+    }
+  },
+  "future_predictions": [
+    {
+      "months_ahead": 6,
+      "scores": {
+        "MMSE": 15.820076999714695,
+        "CDR_Global": 1.0,
+        "CDR_SOB": 8.2703434718625,
+        "ADAS_Cog": 30.506629266577
+      }
+    },
+    {
+      "months_ahead": 12,
+      "scores": {
+        "MMSE": 16.7849476333164,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 8.812261913610447,
+        "ADAS_Cog": 32.38198641978196
+      }
+    },
+    {
+      "months_ahead": 18,
+      "scores": {
+        "MMSE": 17.908578542713222,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 9.610118106282254,
+        "ADAS_Cog": 34.14798339068766
+      }
+    },
+    {
+      "months_ahead": 24,
+      "scores": {
+        "MMSE": 18.99643110012497,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 10.254318440784768,
+        "ADAS_Cog": 35.847312632786185
+      }
+    },
+    {
+      "months_ahead": 30,
+      "scores": {
+        "MMSE": 20.055397136924242,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 10.898042775907998,
+        "ADAS_Cog": 37.3253219530074
+      }
+    },
+    {
+      "months_ahead": 36,
+      "scores": {
+        "MMSE": 20.936804722738533,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 11.641738128155259,
+        "ADAS_Cog": 38.803319213175506
+      }
+    },
+    {
+      "months_ahead": 42,
+      "scores": {
+        "MMSE": 21.882643279319037,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 12.29924994859056,
+        "ADAS_Cog": 40.232361019259606
+      }
+    },
+    {
+      "months_ahead": 48,
+      "scores": {
+        "MMSE": 22.870177489202668,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 12.96287899253492,
+        "ADAS_Cog": 42.06544909214708
+      }
+    },
+    {
+      "months_ahead": 54,
+      "scores": {
+        "MMSE": 24.028645048541005,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 13.666839956370762,
+        "ADAS_Cog": 43.766006598018684
+      }
+    },
+    {
+      "months_ahead": 60,
+      "scores": {
+        "MMSE": 24.951902214551534,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 14.450899153701592,
+        "ADAS_Cog": 45.520042886916706
+      }
+    },
+    {
+      "months_ahead": 66,
+      "scores": {
+        "MMSE": 25.988235836126744,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 15.33510964378386,
+        "ADAS_Cog": 46.930335134064606
+      }
+    },
+    {
+      "months_ahead": 72,
+      "scores": {
+        "MMSE": 26.88869776008521,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 16.017758087359432,
+        "ADAS_Cog": 48.8152900601456
+      }
+    },
+    {
+      "months_ahead": 78,
+      "scores": {
+        "MMSE": 27.97193394910334,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 16.688818695784075,
+        "ADAS_Cog": 50.63151138054581
+      }
+    },
+    {
+      "months_ahead": 84,
+      "scores": {
+        "MMSE": 29.12109931657914,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 17.234204176232062,
+        "ADAS_Cog": 52.137680935884944
+      }
+    },
+    {
+      "months_ahead": 90,
+      "scores": {
+        "MMSE": 30.0,
+        "CDR_Global": 2.0,
+        "CDR_SOB": 17.82136372397067,
+        "ADAS_Cog": 53.628593419488496
+      }
+    }
+  ]
+}

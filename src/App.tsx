@@ -19,6 +19,11 @@ import StandaloneLayout from "@/layout/StandaloneLayout.tsx";
 import ProtectedRoute from "@/components/ProtectedRoute.tsx";
 import FhirServerContextProvider from "@/contexts/FhirServerContext.tsx";
 import CloseSnackbar from "@/components/CloseSnackbar.tsx";
+import DocumentUpload from "@/pages/DocumentUpload/DocumentUpload.tsx";
+import PatientQueryChat from "@/components/chat/PatientQueryChat.tsx";
+import Models from "@/pages/Models/Models.tsx";
+import Analytics from "@/pages/Analytics/Analytics.tsx";
+import Observations from "@/pages/Observations/Observations.tsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -53,6 +58,26 @@ function App() {
         {
           path: "dashboard",
           element: <PatientSummary />,
+        },
+        {
+          path: "upload-documents",
+          element: <DocumentUpload />,
+        },
+        {
+          path: "query-chat",
+          element: <PatientQueryChat />,
+        },
+        {
+          path: "analytics",
+          element: <Analytics />,
+        },
+        {
+          path: "observations",
+          element: <Observations />,
+        },
+        {
+          path: "models",
+          element: <Models />,
         },
         {
           path: "embedded",

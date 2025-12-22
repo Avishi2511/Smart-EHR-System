@@ -1,0 +1,29 @@
+# Ignore input data (large NIfTI files)
+input_data/*/
+!input_data/EXAMPLE_clinical_data.json
+
+# Ignore preprocessed data (cached results)
+preprocessed_data/
+
+# Ignore predictions (generated outputs)
+predictions/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Jupyter notebooks
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

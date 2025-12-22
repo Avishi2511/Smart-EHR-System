@@ -25,7 +25,6 @@ class DataSource(str, enum.Enum):
     FHIR = "fhir"
     FILE = "file"
     MANUAL = "manual"
-    RAG = "rag"
 class Patient(Base):
     """Patient table - stores patient demographics and links to FHIR"""
     __tablename__ = "patients"
@@ -48,6 +47,7 @@ class Patient(Base):
     files = relationship("File", back_populates="patient", cascade="all, delete-orphan")
     parameters = relationship("Parameter", back_populates="patient", cascade="all, delete-orphan")
     model_results = relationship("ModelResult", back_populates="patient", cascade="all, delete-orphan")
+    observations = relationship("Observation", back_populates="patient", cascade="all, delete-orphan")
     
     def __repr__(self):
         return f"<Patient(id='{self.id}', fhir_id='{self.fhir_id}', name='{self.first_name} {self.last_name}')>"
@@ -130,23 +130,32 @@ class ModelResult(Base):
     
     def __repr__(self):
         return f"<ModelResult(id='{self.id}', model='{self.model_name}', patient_id='{self.patient_id}')>"
-class VectorDocument(Base):
-    """VectorDocument table - tracks documents in vector database"""
-    __tablename__ = "vector_documents"
+
+
+class Observation(Base):
+    """Observation table - stores detailed patient observations"""
+    __tablename__ = "observations"
     
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     patient_id = Column(String, ForeignKey("patients.id"), nullable=False, index=True)
-    file_id = Column(String, ForeignKey("files.id"), nullable=True, index=True)
     
-    # Document metadata
-    chunk_index = Column(Integer, nullable=False)
-    chunk_text = Column(Text, nullable=False)
+    # Observation details
+    observation_type = Column(String, nullable=False, index=True)  # glucose, hba1c, mri, etc.
+    value = Column(String, nullable=True)  # measurement value
+    unit = Column(String, nullable=True)  # measurement unit
     
-    # Vector metadata
-    vector_id = Column(Integer, nullable=False, index=True)  # Index in FAISS
+    # Clinical context
+    doctor_remarks = Column(Text, nullable=True)
+    medication_prescribed = Column(Text, nullable=True)
+    document_link = Column(String, nullable=True)  # link to imaging/document
+    status = Column(String, nullable=False, default="final")  # final, preliminary, etc.
     
     # Timestamps
+    effective_datetime = Column(DateTime(timezone=True), nullable=False, index=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     
+    # Relationships
+    patient = relationship("Patient", back_populates="observations")
+    
     def __repr__(self):
-        return f"<VectorDocument(id='{self.id}', vector_id={self.vector_id}, patient_id='{self.patient_id}')>"
+        return f"<Observation(id='{self.id}', type='{self.observation_type}', patient_id='{self.patient_id}')>"

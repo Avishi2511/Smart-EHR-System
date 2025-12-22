@@ -2,8 +2,6 @@ import { Outlet } from "react-router-dom";
 import SideBar from "@/layout/Sidebar/SideBar.tsx";
 import SideBarMobile from "@/layout/SidebarMobile/SideBarMobile.tsx";
 import PatientNavProfile from "@/layout/NavProfiles/PatientNavProfile.tsx";
-import UserNavProfile from "@/layout/NavProfiles/UserNavProfile.tsx";
-import EncounterNavProfile from "@/layout/NavProfiles/EncounterNavProfile.tsx";
 import Header from "@/components/Header.tsx";
 import CopyButton from "@/components/CopyButton.tsx";
 import LogoutButton from "@/components/LogoutButton.tsx";
@@ -26,8 +24,6 @@ function DashboardLayout() {
             />
           </span>
           <PatientNavProfile />
-          <UserNavProfile />
-          <EncounterNavProfile />
         </Header>
         <Outlet />
       </div>

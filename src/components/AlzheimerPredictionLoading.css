@@ -1,0 +1,153 @@
+/* Neural Network Background Animation */
+.neural-network {
+    position: absolute;
+    inset: 0;
+    opacity: 0.3;
+}
+
+.neural-node {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    border-radius: 50%;
+    animation: float 4s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translateY(-30px) translateX(20px);
+        opacity: 0.8;
+    }
+}
+
+/* Brain Pulse Animation */
+.brain-pulse-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brain-pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(129, 140, 248, 0.3);
+    border-radius: 50%;
+    animation: pulse-ring 2s ease-out infinite;
+}
+
+.brain-pulse-ring-1 {
+    animation-delay: 0s;
+}
+
+.brain-pulse-ring-2 {
+    animation-delay: 0.7s;
+}
+
+.brain-pulse-ring-3 {
+    animation-delay: 1.4s;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.brain-icon-wrapper {
+    position: relative;
+    z-index: 10;
+    animation: brain-glow 2s ease-in-out infinite;
+}
+
+@keyframes brain-glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 10px rgba(129, 140, 248, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px rgba(192, 132, 252, 0.8));
+    }
+}
+
+/* Progress Bar Animation */
+.progress-bar {
+    width: 0%;
+    animation: progress 15s linear forwards;
+    box-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
+}
+
+@keyframes progress {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/* Loading Steps */
+.loading-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fade-in-step 0.5s ease-out forwards;
+}
+
+@keyframes fade-in-step {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.loading-dot {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    border-radius: 50%;
+    animation: dot-pulse 1.5s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes dot-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}

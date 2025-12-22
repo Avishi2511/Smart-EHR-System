@@ -156,9 +156,8 @@ async def delete_patient(
             detail=f"Patient {patient_id} not found"
         )
     
-    # Delete from vector database
-    from app.services.vector_db import vector_db
-    vector_db.delete_by_patient(patient_id)
+    # Note: FHIR resources are not deleted automatically
+    # They remain in FHIR server for audit trail
     
     # Delete from SQL (cascade will handle related records)
     db.delete(patient)

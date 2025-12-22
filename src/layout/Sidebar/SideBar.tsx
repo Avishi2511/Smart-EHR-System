@@ -1,4 +1,4 @@
-import { AppWindow, User, CreditCard, Home } from "lucide-react";
+import { AppWindow, User, CreditCard, Home, Upload, MessageSquare, Brain, BarChart3, ClipboardList } from "lucide-react";
 import DataSaverOnIcon from "@mui/icons-material/DataSaverOn";
 import SideBarItem from "@/layout/Sidebar/SideBarItem.tsx";
 import SideBarLogo from "@/layout/Sidebar/SideBarLogo.tsx";
@@ -40,6 +40,56 @@ function SideBar() {
             title: "Patient Summary",
             path: "/app/dashboard",
             Icon: <User />,
+          }}
+          activePath={activePath}
+          onSwitchActivePage={switchActivePage}
+        />
+
+        <SideBarItem
+          sidebarItem={{
+            title: "Upload Documents",
+            path: "/app/upload-documents",
+            Icon: <Upload />,
+          }}
+          activePath={activePath}
+          onSwitchActivePage={switchActivePage}
+        />
+
+        <SideBarItem
+          sidebarItem={{
+            title: "Query Chat",
+            path: "/app/query-chat",
+            Icon: <MessageSquare />,
+          }}
+          activePath={activePath}
+          onSwitchActivePage={switchActivePage}
+        />
+
+        <SideBarItem
+          sidebarItem={{
+            title: "Analytics",
+            path: "/app/analytics",
+            Icon: <BarChart3 />,
+          }}
+          activePath={activePath}
+          onSwitchActivePage={switchActivePage}
+        />
+
+        <SideBarItem
+          sidebarItem={{
+            title: "Observations",
+            path: "/app/observations",
+            Icon: <ClipboardList />,
+          }}
+          activePath={activePath}
+          onSwitchActivePage={switchActivePage}
+        />
+
+        <SideBarItem
+          sidebarItem={{
+            title: "Models",
+            path: "/app/models",
+            Icon: <Brain />,
           }}
           activePath={activePath}
           onSwitchActivePage={switchActivePage}

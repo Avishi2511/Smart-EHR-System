@@ -3,7 +3,6 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 from app.models.sql_models import Parameter, DataSource
 from app.services.fhir_service import fhir_service
-from app.services.rag_service import rag_service
 import logging
 logger = logging.getLogger(__name__)
 class ParameterExtractor:
@@ -17,12 +16,11 @@ class ParameterExtractor:
         fhir_id: Optional[str] = None
     ) -> Dict[str, float]:
         """
-        Get parameter values from SQL, FHIR, or RAG
+        Get parameter values from SQL or FHIR
         
         Priority order:
         1. SQL database (most recent values)
         2. FHIR server (if FHIR ID provided)
-        3. RAG extraction from documents
         
         Args:
             db: Database session
@@ -67,32 +65,6 @@ class ParameterExtractor:
                 
                 missing_params.remove(param_name)
                 logger.info(f"Found {param_name} in FHIR: {value}")
-        
-        if not missing_params:
-            return parameters
-        
-        # Step 3: Try RAG extraction from documents
-        rag_results = await rag_service.extract_multiple_parameters(
-            parameter_names=missing_params,
-            patient_id=patient_id
-        )
-        
-        for param_name, result in rag_results.items():
-            if result is not None:
-                value, source_text, confidence = result
-                parameters[param_name] = value
-                
-                # Store in SQL
-                self._store_parameter(
-                    db=db,
-                    patient_id=patient_id,
-                    parameter_name=param_name,
-                    value=value,
-                    source=DataSource.RAG,
-                    source_id=None
-                )
-                
-                logger.info(f"Extracted {param_name} from documents: {value} (confidence: {confidence})")
         
         return parameters
     

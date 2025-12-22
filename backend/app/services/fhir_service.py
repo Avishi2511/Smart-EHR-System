@@ -89,6 +89,38 @@ class FHIRService:
             logger.error(f"Error fetching observations from FHIR: {e}")
             return []
     
+    async def get_observations_by_code(
+        self, 
+        patient_id: str, 
+        loinc_code: str
+    ) -> List[Dict[str, Any]]:
+        """
+        Fetch observations for a patient filtered by LOINC code
+        
+        This is an alias method for get_observations with code filter
+        
+        Args:
+            patient_id: FHIR patient ID
+            loinc_code: LOINC code to filter observations
+            
+        Returns:
+            List of observation resources matching the code
+        """
+        # Get all observations for the patient (without code filter)
+        all_observations = await self.get_observations(patient_id=patient_id)
+        
+        # Filter by LOINC code client-side
+        filtered_observations = []
+        for obs in all_observations:
+            # Check if any coding in the observation matches the LOINC code
+            codings = obs.get("code", {}).get("coding", [])
+            for coding in codings:
+                if coding.get("code") == loinc_code:
+                    filtered_observations.append(obs)
+                    break  # Found a match, no need to check other codings
+        
+        return filtered_observations
+    
     async def get_conditions(self, patient_id: str) -> List[Dict[str, Any]]:
         """
         Fetch conditions for a patient
@@ -235,6 +267,90 @@ class FHIRService:
                             lab_results[param_name] = float(value)
         
         return lab_results
+    
+    async def create_observation(self, observation_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        """
+        Create an Observation resource in FHIR server
+        
+        Args:
+            observation_data: FHIR Observation resource dict
+            
+        Returns:
+            Created resource or None if failed
+        """
+        try:
+            async with httpx.AsyncClient(timeout=self.timeout) as client:
+                response = await client.post(
+                    f"{self.base_url}/Observation",
+                    json=observation_data,
+                    headers={"Content-Type": "application/json"}
+                )
+                
+                if response.status_code in [200, 201]:
+                    logger.info(f"Created Observation: {observation_data.get('id')}")
+                    return response.json()
+                else:
+                    logger.error(f"Failed to create Observation: {response.status_code} - {response.text}")
+                    return None
+        except Exception as e:
+            logger.error(f"Error creating Observation in FHIR: {e}")
+            return None
+    
+    async def create_condition(self, condition_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        """
+        Create a Condition resource in FHIR server
+        
+        Args:
+            condition_data: FHIR Condition resource dict
+            
+        Returns:
+            Created resource or None if failed
+        """
+        try:
+            async with httpx.AsyncClient(timeout=self.timeout) as client:
+                response = await client.post(
+                    f"{self.base_url}/Condition",
+                    json=condition_data,
+                    headers={"Content-Type": "application/json"}
+                )
+                
+                if response.status_code in [200, 201]:
+                    logger.info(f"Created Condition: {condition_data.get('id')}")
+                    return response.json()
+                else:
+                    logger.error(f"Failed to create Condition: {response.status_code} - {response.text}")
+                    return None
+        except Exception as e:
+            logger.error(f"Error creating Condition in FHIR: {e}")
+            return None
+    
+    async def create_medication_request(self, med_request_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        """
+        Create a MedicationRequest resource in FHIR server
+        
+        Args:
+            med_request_data: FHIR MedicationRequest resource dict
+            
+        Returns:
+            Created resource or None if failed
+        """
+        try:
+            async with httpx.AsyncClient(timeout=self.timeout) as client:
+                response = await client.post(
+                    f"{self.base_url}/MedicationRequest",
+                    json=med_request_data,
+                    headers={"Content-Type": "application/json"}
+                )
+                
+                if response.status_code in [200, 201]:
+                    logger.info(f"Created MedicationRequest: {med_request_data.get('id')}")
+                    return response.json()
+                else:
+                    logger.error(f"Failed to create MedicationRequest: {response.status_code} - {response.text}")
+                    return None
+        except Exception as e:
+            logger.error(f"Error creating MedicationRequest in FHIR: {e}")
+            return None
     
     async def check_connection(self) -> bool:
         """

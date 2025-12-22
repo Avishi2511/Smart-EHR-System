@@ -16,6 +16,7 @@
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-progress": "^1.1.0",
+    "@radix-ui/react-scroll-area": "^1.2.10",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
@@ -28,6 +29,7 @@
     "@types/fhir": "^0.0.36",
     "axios": "^1.4.0",
     "axios-auth-refresh": "^3.3.6",
+    "chart.js": "^4.5.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
@@ -40,8 +42,10 @@
     "nprogress": "^0.2.0",
     "re-resizable": "^6.9.17",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.3.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.0",
+    "recharts": "^3.5.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "usehooks-ts": "^3.1.0"
@@ -62,6 +66,6 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.0.2",
-    "vite": "^4.3.2"
+    "vite": "^5.4.11"
   }
 }

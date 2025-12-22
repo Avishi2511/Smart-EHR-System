@@ -1,0 +1,168 @@
+﻿Total ROI feature rows: 126
+Unique patients: 64
+
+Patients with 3+ visits: 18
+Patients with 2+ visits: 34
+
+Master data rows: 18437
+
+Patients in ROI: 64
+Patients in master: 5004
+Overlap: 0
+
+================================================================================
+ANALYZING PATIENTS WITH ROI FEATURES
+================================================================================
+
+
+Patient: 013S1205
+  ROI visits: 3
+  Sessions: 20070724, 20080124, 20090316
+  Found in master as: 013_S_1205
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 021S0141
+  ROI visits: 5
+  Sessions: 20060808, 20070222, 20070806, 20080229, 20090224
+  Found in master as: 021_S_0141
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 021S0231
+  ROI visits: 4
+  Sessions: 20060912, 20070321, 20070919, 20080904
+  Found in master as: 021_S_0231
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 021S0343
+  ROI visits: 3
+  Sessions: 20061025, 20070424, 20080429
+  Found in master as: 021_S_0343
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 021S0424
+  ROI visits: 4
+  Sessions: 20061110, 20071113, 20080513, 20090512
+  Found in master as: 021_S_0424
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 021S0626
+  ROI visits: 4
+  Sessions: 20070215, 20070807, 20080212, 20080827
+  Found in master as: 021_S_0626
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 021S1109
+  ROI visits: 3
+  Sessions: 20070710, 20080110, 20080702
+  Found in master as: 021_S_1109
+  Age: N/A, Gender: 2.0
+  MMSE: nan, CDR: nan
+
+Patient: 033S0511
+  ROI visits: 4
+  Sessions: 20061206, 20070606, 20071130, 20080604
+  Found in master as: 033_S_0511
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 033S0513
+  ROI visits: 3
+  Sessions: 20070531, 20071128, 20090602
+  Found in master as: 033_S_0513
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 033S0567
+  ROI visits: 5
+  Sessions: 20061205, 20070607, 20071127, 20080605, 20090615
+  Found in master as: 033_S_0567
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 033S0723
+  ROI visits: 3
+  Sessions: 20070808, 20080220, 20090814
+  Found in master as: 033_S_0723
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 033S0741
+  ROI visits: 3
+  Sessions: 20070810, 20080813, 20090814
+  Found in master as: 033_S_0741
+  Age: N/A, Gender: 2.0
+  MMSE: nan, CDR: nan
+
+Patient: 033S0889
+  ROI visits: 3
+  Sessions: 20070425, 20071001, 20081007
+  Found in master as: 033_S_0889
+  Age: N/A, Gender: 2.0
+  MMSE: nan, CDR: nan
+
+Patient: 033S0906
+  ROI visits: 5
+  Sessions: 20070426, 20071001, 20080409, 20081008, 20091002
+  Found in master as: 033_S_0906
+  Age: N/A, Gender: 2.0
+  MMSE: nan, CDR: nan
+
+Patient: 131S0497
+  ROI visits: 3
+  Sessions: 20070110, 20070619, 20080717
+  Found in master as: 131_S_0497
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 137S0283
+  ROI visits: 3
+  Sessions: 20061030, 20080414, 20090423
+  Found in master as: 137_S_0283
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 137S0481
+  ROI visits: 3
+  Sessions: 20061207, 20070524, 20071205
+  Found in master as: 137_S_0481
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+Patient: 137S0686
+  ROI visits: 3
+  Sessions: 20070212, 20080821, 20090729
+  Found in master as: 137_S_0686
+  Age: N/A, Gender: 1.0
+  MMSE: nan, CDR: nan
+
+================================================================================
+RECOMMENDATION: Use these patients from ROI features
+================================================================================
+
+Top 20 patients with most visits:
+  033S0567: 5 visits
+  033S0906: 5 visits
+  021S0141: 5 visits
+  021S0231: 4 visits
+  033S0511: 4 visits
+  021S0626: 4 visits
+  021S0424: 4 visits
+  013S1205: 3 visits
+  021S0343: 3 visits
+  021S1109: 3 visits
+  033S0741: 3 visits
+  033S0889: 3 visits
+  033S0513: 3 visits
+  033S0723: 3 visits
+  137S0686: 3 visits
+  131S0497: 3 visits
+  137S0283: 3 visits
+  137S0481: 3 visits
+  013S1275: 2 visits
+  013S1120: 2 visits

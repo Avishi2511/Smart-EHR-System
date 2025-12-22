@@ -232,6 +232,173 @@ class DiabetesRiskModel(DiseaseModel):
         recommendations.append("Maintain healthy diet (low glycemic index)")
         
         return recommendations
+
+
+class ADNIProgressionModel(DiseaseModel):
+    """ADNI Alzheimer's Disease Progression Prediction Model"""
+    
+    def __init__(self):
+        super().__init__(name="adni_progression", version="1.0")
+        from app.services.adni_model_service import adni_service
+        from app.services.adni_parameter_mapper import adni_parameter_mapper
+        self.adni_service = adni_service
+        self.adni_parameter_mapper = adni_parameter_mapper
+        
+        # Load model on initialization
+        try:
+            self.adni_service.load_model()
+            logger.info("ADNI model loaded successfully")
+        except Exception as e:
+            logger.error(f"Failed to load ADNI model: {e}")
+    
+    def get_required_parameters(self) -> List[str]:
+        """ADNI model parameters (extracted automatically)"""
+        return [
+            "age", "gender", "education", "apoe4",
+            "mmse", "cdr_global", "cdr_sob", "adas_totscore"
+        ]
+    
+    async def run_async(self, patient_id: str, db: Session) -> Dict[str, Any]:
+        """
+        Run ADNI progression model (async version)
+        
+        This method extracts parameters and runs the full progression prediction
+        """
+        # Extract ADNI-specific parameters
+        adni_params = await self.adni_parameter_mapper.get_adni_parameters(
+            patient_id=patient_id,
+            db=db
+        )
+        
+        # Format for model
+        model_input = self.adni_parameter_mapper.format_for_model(adni_params)
+        
+        # Run prediction
+        predictions = self.adni_service.predict_progression(
+            patient_data=model_input,
+            num_future_points=5  # Predict 5 future visits (30 months)
+        )
+        
+        # Format results for timeline
+        timeline = self._format_timeline(predictions, adni_params)
+        
+        # Calculate summary statistics
+        summary = self._calculate_summary(timeline)
+        
+        return {
+            "timeline": timeline,
+            "summary": summary,
+            "predictions": predictions["predictions"],
+            "timepoints": predictions["timepoints"],
+            "confidence_score": predictions["confidence_score"],
+            "metadata": predictions["metadata"]
+        }
+    
+    def run(self, parameters: Dict[str, float]) -> Dict[str, Any]:
+        """
+        Synchronous run method (required by base class)
+        
+        Note: ADNI model should use run_async() for full functionality
+        """
+        # This is a simplified version for compatibility
+        # Real usage should call run_async()
+        return {
+            "message": "ADNI model requires async execution. Use run_async() instead.",
+            "parameters_received": list(parameters.keys())
+        }
+    
+    def _format_timeline(
+        self, 
+        predictions: Dict[str, Any],
+        adni_params: Dict[str, Any]
+    ) -> List[Dict[str, Any]]:
+        """Format predictions as timeline points"""
+        timeline = []
+        
+        # Historical points
+        hist_timepoints = predictions["timepoints"]["historical"]
+        for i, visit in enumerate(hist_timepoints):
+            timeline.append({
+                "visit": visit,
+                "months_from_baseline": self._visit_to_months(visit),
+                "is_historical": True,
+                "is_predicted": False,
+                "scores": {
+                    "mmse": predictions["predictions"]["mmse"]["historical"][i],
+                    "cdr_global": predictions["predictions"]["cdr_global"]["historical"][i],
+                    "cdr_sob": predictions["predictions"]["cdr_sob"]["historical"][i],
+                    "adas_totscore": predictions["predictions"]["adas_totscore"]["historical"][i]
+                },
+                "confidence": 1.0  # Historical data has full confidence
+            })
+        
+        # Future predictions
+        future_timepoints = predictions["timepoints"]["future"]
+        confidence = predictions["confidence_score"]
+        
+        for i, visit in enumerate(future_timepoints):
+            timeline.append({
+                "visit": visit,
+                "months_from_baseline": self._visit_to_months(visit),
+                "is_historical": False,
+                "is_predicted": True,
+                "scores": {
+                    "mmse": predictions["predictions"]["mmse"]["future"][i],
+                    "cdr_global": predictions["predictions"]["cdr_global"]["future"][i],
+                    "cdr_sob": predictions["predictions"]["cdr_sob"]["future"][i],
+                    "adas_totscore": predictions["predictions"]["adas_totscore"]["future"][i]
+                },
+                "confidence": confidence * (1 - i * 0.1)  # Decrease confidence over time
+            })
+        
+        return timeline
+    
+    def _visit_to_months(self, visit: str) -> int:
+        """Convert visit code to months from baseline"""
+        visit_map = {
+            "sc": -1, "bl": 0, "m03": 3, "m06": 6, "m12": 12, "m18": 18,
+            "m24": 24, "m36": 36, "m48": 48, "m60": 60, "m72": 72,
+            "m84": 84, "m96": 96, "m108": 108, "m120": 120
+        }
+        return visit_map.get(visit, 0)
+    
+    def _calculate_summary(self, timeline: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Calculate summary statistics from timeline"""
+        if not timeline:
+            return {}
+        
+        # Get baseline and last prediction
+        baseline = timeline[0]["scores"]
+        last_prediction = timeline[-1]["scores"]
+        
+        # Calculate changes
+        changes = {
+            "mmse": last_prediction["mmse"] - baseline["mmse"],
+            "cdr_global": last_prediction["cdr_global"] - baseline["cdr_global"],
+            "cdr_sob": last_prediction["cdr_sob"] - baseline["cdr_sob"],
+            "adas_totscore": last_prediction["adas_totscore"] - baseline["adas_totscore"]
+        }
+        
+        # Determine risk level based on MMSE decline
+        mmse_decline = -changes["mmse"]  # Negative change means decline
+        if mmse_decline < 2:
+            risk_level = "Stable"
+        elif mmse_decline < 5:
+            risk_level = "Mild Decline"
+        elif mmse_decline < 10:
+            risk_level = "Moderate Decline"
+        else:
+            risk_level = "Severe Decline"
+        
+        return {
+            "baseline_scores": baseline,
+            "predicted_final_scores": last_prediction,
+            "predicted_changes": changes,
+            "risk_level": risk_level,
+            "prediction_horizon_months": timeline[-1]["months_from_baseline"]
+        }
+
+
 class ModelRunner:
     """Service for running disease prediction models"""
     
@@ -240,6 +407,7 @@ class ModelRunner:
         self.models: Dict[str, DiseaseModel] = {
             "alzheimer_risk": AlzheimerRiskModel(),
             "diabetes_risk": DiabetesRiskModel(),
+            "adni_progression": ADNIProgressionModel(),
         }
     
     def get_available_models(self) -> List[str]:
@@ -291,36 +459,62 @@ class ModelRunner:
         required_params = model.get_required_parameters()
         logger.info(f"Model {model_name} requires: {required_params}")
         
-        # Fetch parameters
-        parameters = await parameter_extractor.get_parameters(
-            db=db,
-            patient_id=patient_id,
-            parameter_names=required_params,
-            fhir_id=patient.fhir_id
-        )
-        
-        # Apply overrides
-        if override_parameters:
-            parameters.update(override_parameters)
-        
-        # Check for missing parameters
-        missing = [p for p in required_params if p not in parameters]
-        
         # Run model
         start_time = time.time()
         
-        if missing:
-            logger.warning(f"Missing parameters for model {model_name}: {missing}")
-            results = {
-                "error": "Missing required parameters",
-                "missing_parameters": missing,
-                "available_parameters": list(parameters.keys())
-            }
-            execution_time = int((time.time() - start_time) * 1000)
+        # Special handling for ADNI progression model
+        if model_name == "adni_progression" and hasattr(model, 'run_async'):
+            logger.info("Running ADNI progression model (async)")
+            try:
+                results = await model.run_async(patient_id=patient_id, db=db)
+                execution_time = int((time.time() - start_time) * 1000)
+                logger.info(f"ADNI model completed in {execution_time}ms")
+                
+                # Extract parameters for storage
+                parameters = {
+                    "model_type": "progression",
+                    "prediction_horizon_months": results.get("summary", {}).get("prediction_horizon_months", 30)
+                }
+                missing = []
+                
+            except Exception as e:
+                logger.error(f"Error running ADNI model: {e}")
+                results = {
+                    "error": str(e),
+                    "message": "ADNI model execution failed"
+                }
+                execution_time = int((time.time() - start_time) * 1000)
+                parameters = {}
+                missing = required_params
         else:
-            results = model.run(parameters)
-            execution_time = int((time.time() - start_time) * 1000)
-            logger.info(f"Model {model_name} completed in {execution_time}ms")
+            # Standard model execution
+            # Fetch parameters
+            parameters = await parameter_extractor.get_parameters(
+                db=db,
+                patient_id=patient_id,
+                parameter_names=required_params,
+                fhir_id=patient.fhir_id
+            )
+            
+            # Apply overrides
+            if override_parameters:
+                parameters.update(override_parameters)
+            
+            # Check for missing parameters
+            missing = [p for p in required_params if p not in parameters]
+            
+            if missing:
+                logger.warning(f"Missing parameters for model {model_name}: {missing}")
+                results = {
+                    "error": "Missing required parameters",
+                    "missing_parameters": missing,
+                    "available_parameters": list(parameters.keys())
+                }
+                execution_time = int((time.time() - start_time) * 1000)
+            else:
+                results = model.run(parameters)
+                execution_time = int((time.time() - start_time) * 1000)
+                logger.info(f"Model {model_name} completed in {execution_time}ms")
         
         # Store result
         model_result = ModelResult(

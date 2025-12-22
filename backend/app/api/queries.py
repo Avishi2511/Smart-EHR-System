@@ -5,54 +5,16 @@ from datetime import datetime
 from app.database import get_db
 from app.models.sql_models import Parameter, DataSource
 from app.models.schemas import (
-    NaturalLanguageQuery,
-    QueryResponse,
     ParameterQueryRequest,
     ParameterQueryResponse,
-    ParameterResponse,
-    RAGSearchRequest,
-    RAGSearchResponse,
-    RAGSearchResult
+    ParameterResponse
 )
-from app.services.rag_service import rag_service
 from app.services.parameter_extractor import parameter_extractor
 import logging
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/queries", tags=["Queries"])
-
-
-@router.post("/natural-language", response_model=QueryResponse)
-async def natural_language_query(
-    query: NaturalLanguageQuery,
-    db: Session = Depends(get_db)
-):
-    """
-    Answer a natural language query about a patient
-    
-    Uses RAG to search patient documents and return relevant information.
-    Example: "What was the patient's MMSE score last year?"
-    """
-    try:
-        result = await rag_service.answer_query(
-            query=query.query,
-            patient_id=query.patient_id
-        )
-        
-        return QueryResponse(
-            query=result["query"],
-            answer=result["answer"],
-            sources=result["sources"],
-            confidence=result["confidence"]
-        )
-        
-    except Exception as e:
-        logger.error(f"Error processing natural language query: {e}")
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Error processing query"
-        )
 
 
 @router.post("/parameters", response_model=ParameterQueryResponse)
@@ -139,100 +101,6 @@ async def get_parameter_history(
     }
 
 
-@router.post("/rag/search", response_model=RAGSearchResponse)
-async def rag_search(
-    request: RAGSearchRequest,
-    db: Session = Depends(get_db)
-):
-    """
-    Perform semantic search on patient documents
-    
-    Returns relevant document chunks based on similarity to query.
-    """
-    try:
-        results = await rag_service.search_documents(
-            query=request.query,
-            patient_id=request.patient_id,
-            top_k=request.top_k
-        )
-        
-        search_results = [
-            RAGSearchResult(
-                chunk_text=r["text"],
-                file_id=r["file_id"],
-                similarity_score=r["similarity_score"],
-                metadata=r.get("metadata", {})
-            )
-            for r in results
-        ]
-        
-        return RAGSearchResponse(
-            query=request.query,
-            results=search_results
-        )
-        
-    except Exception as e:
-        logger.error(f"Error performing RAG search: {e}")
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Error performing search"
-        )
-
-
-@router.post("/parameters/extract/{patient_id}/{parameter_name}")
-async def extract_parameter(
-    patient_id: str,
-    parameter_name: str,
-    db: Session = Depends(get_db)
-):
-    """
-    Extract a specific parameter value from patient documents using RAG
-    
-    Attempts to find and extract the parameter value from unstructured documents.
-    If found, stores it in the SQL database for future use.
-    """
-    try:
-        result = await rag_service.extract_parameter_value(
-            parameter_name=parameter_name,
-            patient_id=patient_id
-        )
-        
-        if result is None:
-            return {
-                "patient_id": patient_id,
-                "parameter_name": parameter_name,
-                "found": False,
-                "message": "Parameter not found in documents"
-            }
-        
-        value, source_text, confidence = result
-        
-        # Store in database
-        await parameter_extractor.store_manual_parameter(
-            db=db,
-            patient_id=patient_id,
-            parameter_name=parameter_name,
-            value=value
-        )
-        
-        return {
-            "patient_id": patient_id,
-            "parameter_name": parameter_name,
-            "found": True,
-            "value": value,
-            "source_text": source_text[:200] + "..." if len(source_text) > 200 else source_text,
-            "confidence": confidence,
-            "message": "Parameter extracted and stored successfully"
-        }
-        
-    except Exception as e:
-        logger.error(f"Error extracting parameter: {e}")
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Error extracting parameter"
-        )
-
-
 @router.get("/stats/parameters/{patient_id}")
 async def get_parameter_stats(
     patient_id: str,
@@ -267,17 +135,4 @@ async def get_parameter_stats(
             "earliest": earliest.isoformat() if earliest else None,
             "latest": latest.isoformat() if latest else None
         }
-    }
-
-
-@router.get("/vector-db/stats")
-async def get_vector_db_stats():
-    """Get vector database statistics"""
-    from app.services.vector_db import vector_db
-    
-    stats = vector_db.get_stats()
-    
-    return {
-        "vector_database": stats,
-        "status": "initialized" if vector_db.is_initialized() else "not_initialized"
     }

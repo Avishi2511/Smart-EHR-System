@@ -1,0 +1,5 @@
+﻿ROI Features: 126 rows
+Unique patients: 64
+Columns: ['subject_id', 'session_token', 'mri_roi_001', 'pet_roi_001', 'mri_roi_002', 'pet_roi_002', 'mri_roi_003', 'pet_roi_003', 'mri_roi_004', 'pet_roi_004']
+
+Master with imaging: 18437 rows

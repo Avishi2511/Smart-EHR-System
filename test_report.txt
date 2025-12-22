@@ -1,0 +1,15 @@
+Test Medical Report
+
+Patient: Test Patient
+Date: 2025-12-22
+
+Lab Results:
+Creatinine: 96 mg/dL
+eGFR: 56 mL/min
+MAP: 85 mmHg
+Cystatin C: 1.2 mg/L
+Uric Acid: 6.5 mg/dL
+
+Diagnosis:
+- Chronic Kidney Disease
+- Hypertension

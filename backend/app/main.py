@@ -6,9 +6,8 @@ import logging
 from app.config import settings
 from app.database import init_db
 from app.models.schemas import HealthCheckResponse
-from app.api import patients, files, models, queries
+from app.api import patients, files, models, queries, chat, alzheimers, analytics, observations
 from app.services.fhir_service import fhir_service
-from app.services.vector_db import vector_db
 # Configure logging
 logging.basicConfig(
     level=logging.INFO if settings.DEBUG else logging.WARNING,
@@ -18,7 +17,7 @@ logger = logging.getLogger(__name__)
 # Create FastAPI application
 app = FastAPI(
     title="Smart EHR Backend",
-    description="Backend system with SQL, Vector DB, and RAG for Smart EHR",
+    description="Backend system with FHIR integration for Smart EHR",
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc"
@@ -46,16 +45,6 @@ async def startup_event():
         logger.info("✓ FHIR server connection successful")
     else:
         logger.warning("✗ FHIR server connection failed")
-    
-    # Check vector database
-    vector_db_ready = vector_db.is_initialized()
-    if vector_db_ready:
-        logger.info("✓ Vector database initialized")
-        stats = vector_db.get_stats()
-        logger.info(f"  - Total vectors: {stats['total_vectors']}")
-        logger.info(f"  - Patients: {stats['patients']}")
-    else:
-        logger.warning("✗ Vector database not initialized")
     
     logger.info("Smart EHR Backend started successfully!")
 @app.on_event("shutdown")
@@ -86,15 +75,12 @@ async def health_check():
     # Check FHIR server
     fhir_server_reachable = await fhir_service.check_connection()
     
-    # Check vector database
-    vector_db_initialized = vector_db.is_initialized()
-    
     return HealthCheckResponse(
-        status="healthy" if all([database_connected, vector_db_initialized]) else "degraded",
+        status="healthy" if all([database_connected, fhir_server_reachable]) else "degraded",
         service="Smart EHR Backend",
         timestamp=datetime.utcnow(),
         database_connected=database_connected,
-        vector_db_initialized=vector_db_initialized,
+        vector_db_initialized=False,  # Deprecated
         fhir_server_reachable=fhir_server_reachable
     )
 # Include routers
@@ -102,6 +88,10 @@ app.include_router(patients.router, prefix="/api")
 app.include_router(files.router, prefix="/api")
 app.include_router(models.router, prefix="/api")
 app.include_router(queries.router, prefix="/api")
+app.include_router(chat.router, prefix="/api")
+app.include_router(alzheimers.router, prefix="/api")
+app.include_router(analytics.router, prefix="/api")
+app.include_router(observations.router, prefix="/api")
 if __name__ == "__main__":
     uvicorn.run(
         "app.main:app",

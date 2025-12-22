@@ -16,23 +16,12 @@ class Settings(BaseSettings):
     FHIR_SERVER_URL: str = "http://localhost:8000"
     FHIR_SERVER_TIMEOUT: int = 30
     
-    # Vector Database Configuration
-    VECTOR_DB_PATH: str = "./storage/vector_db"
-    EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
-    VECTOR_DIMENSION: int = 384
-    CHUNK_SIZE: int = 500
-    CHUNK_OVERLAP: int = 50
-    
     # File Storage Configuration
     FILE_STORAGE_PATH: str = "./storage/files"
     MAX_FILE_SIZE_MB: int = 50
     
     # Redis Configuration
     REDIS_URL: str = "redis://localhost:6379/0"
-    
-    # RAG Configuration
-    RAG_TOP_K: int = 5
-    RAG_SIMILARITY_THRESHOLD: float = 0.7
     
     # OpenAI Configuration (optional)
     OPENAI_API_KEY: str = ""
@@ -52,5 +41,4 @@ class Settings(BaseSettings):
 # Create global settings instance
 settings = Settings()
 # Ensure storage directories exist
-os.makedirs(settings.VECTOR_DB_PATH, exist_ok=True)
 os.makedirs(settings.FILE_STORAGE_PATH, exist_ok=True)

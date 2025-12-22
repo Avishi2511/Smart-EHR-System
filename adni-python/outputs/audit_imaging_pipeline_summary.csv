@@ -1,0 +1,5 @@
+failure_reason,count
+no_session_within_window,12533
+no_pet_for_session,1268
+no_t1_for_session,512
+pet_path_missing_on_disk,124

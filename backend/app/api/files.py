@@ -10,6 +10,7 @@ from app.models.schemas import FileResponse, FileUploadResponse
 from app.services.file_processor import file_processor
 from app.config import settings
 import logging
+import traceback
 
 logger = logging.getLogger(__name__)
 
@@ -45,8 +46,8 @@ async def upload_file(
     File is saved to storage and metadata is stored in database.
     File will be processed asynchronously to extract text and create embeddings.
     """
-    # Verify patient exists
-    patient = db.query(Patient).filter(Patient.id == patient_id).first()
+    # Verify patient exists (patient_id is actually the FHIR ID from frontend)
+    patient = db.query(Patient).filter(Patient.fhir_id == patient_id).first()
     if not patient:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -54,84 +55,111 @@ async def upload_file(
         )
     
     # Validate file size
-    file.file.seek(0, 2)  # Seek to end
-    file_size = file.file.tell()
-    file.file.seek(0)  # Reset to beginning
-    
-    max_size = settings.MAX_FILE_SIZE_MB * 1024 * 1024
-    if file_size > max_size:
-        raise HTTPException(
-            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
-            detail=f"File size exceeds maximum of {settings.MAX_FILE_SIZE_MB}MB"
-        )
-    
-    # Determine file type
-    file_type = get_file_type(file.filename)
-    
-    # Validate category
     try:
-        file_category = FileCategory(category)
-    except ValueError:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Invalid category. Must be one of: {[c.value for c in FileCategory]}"
+        logger.info(f"Upload request received for patient {patient_id}")
+        
+        # Verify patient exists (patient_id is actually the FHIR ID from frontend)
+        patient = db.query(Patient).filter(Patient.fhir_id == patient_id).first()
+        if not patient:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Patient {patient_id} not found"
+            )
+        
+        logger.info(f"Patient found: {patient.id}")
+        
+        # Determine file type and category
+        file_type = get_file_type(file.filename)
+        try:
+            file_category = FileCategory(category)
+        except ValueError:
+            logger.warning(f"Invalid category '{category}' provided for file {file.filename}. Defaulting to OTHER.")
+            file_category = FileCategory.OTHER
+        
+        # Create patient directory if it doesn't exist
+        patient_dir = os.path.join(settings.FILE_STORAGE_PATH, str(patient.id)) # Use SQL patient ID for directory
+        os.makedirs(patient_dir, exist_ok=True)
+        
+        # Generate unique filename
+        timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S_%f")
+        safe_filename = f"{timestamp}_{file.filename}"
+        file_path = os.path.join(patient_dir, safe_filename)
+        
+        # Save file to storage
+        try:
+            with open(file_path, "wb") as buffer:
+                shutil.copyfileobj(file.file, buffer)
+            file_size = os.path.getsize(file_path)
+        except Exception as e:
+            logger.error(f"Error saving file '{file.filename}' for patient {patient_id}: {e}")
+            logger.error(f"Traceback: {traceback.format_exc()}")
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="Error saving file"
+            )
+        
+        # Validate file size after saving
+        max_size = settings.MAX_FILE_SIZE_MB * 1024 * 1024
+        if file_size > max_size:
+            # Delete the saved file if it's too large
+            if os.path.exists(file_path):
+                os.remove(file_path)
+            raise HTTPException(
+                status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+                detail=f"File size ({file_size / (1024*1024):.2f}MB) exceeds maximum of {settings.MAX_FILE_SIZE_MB}MB"
+            )
+        
+        # Create database record (use SQL patient ID, not FHIR ID)
+        db_file = File(
+            patient_id=patient.id,  # Use SQL database patient ID
+            filename=file.filename,
+            file_type=file_type,
+            category=file_category,
+            file_path=file_path,
+            file_size=file_size,
+            processed=False
         )
-    
-    # Create patient directory if it doesn't exist
-    patient_dir = os.path.join(settings.FILE_STORAGE_PATH, patient_id)
-    os.makedirs(patient_dir, exist_ok=True)
-    
-    # Generate unique filename
-    timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-    safe_filename = f"{timestamp}_{file.filename}"
-    file_path = os.path.join(patient_dir, safe_filename)
-    
-    # Save file
-    try:
-        with open(file_path, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
+        db.add(db_file)
+        db.commit()
+        db.refresh(db_file)
+        
+        logger.info(f"Uploaded file {db_file.id} for patient {patient_id}. File path: {file_path}")
+        
+        # Process file asynchronously
+        try:
+            await file_processor.process_file(
+                db=db,
+                file_id=db_file.id,
+                patient_id=patient.id,  # Use SQL patient ID
+                fhir_patient_id=patient.fhir_id,
+                file_path=file_path,
+                file_type=file_type.value
+            )
+        except Exception as e:
+            logger.error(f"Error processing file {db_file.id} for patient {patient_id}: {e}")
+            logger.error(f"Traceback: {traceback.format_exc()}")
+            # File is saved but processing failed - will be retried later
+        
+        return FileUploadResponse(
+            file_id=db_file.id,
+            filename=db_file.filename,
+            file_type=db_file.file_type.value,
+            category=db_file.category.value,
+            file_size=db_file.file_size,
+            uploaded_at=db_file.uploaded_at,
+            processed=db_file.processed
+        )
+    except HTTPException:
+        # Re-raise HTTPExceptions directly
+        raise
     except Exception as e:
-        logger.error(f"Error saving file: {e}")
+        # Catch any other unexpected errors
+        logger.error(f"Unexpected error during file upload for patient {patient_id}: {e}")
+        logger.error(f"Traceback: {traceback.format_exc()}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Error saving file"
+            detail=f"An unexpected error occurred during file upload: {str(e)}"
         )
-    
-    # Create database record
-    db_file = File(
-        patient_id=patient_id,
-        filename=file.filename,
-        file_type=file_type,
-        category=file_category,
-        file_path=file_path,
-        file_size=file_size,
-        processed=False
-    )
-    
-    db.add(db_file)
-    db.commit()
-    db.refresh(db_file)
-    
-    logger.info(f"Uploaded file {db_file.id} for patient {patient_id}")
-    
-    # Process file asynchronously
-    try:
-        await file_processor.process_file(
-            db=db,
-            file_id=db_file.id,
-            patient_id=patient_id,
-            file_path=file_path,
-            file_type=file_type.value
-        )
-    except Exception as e:
-        logger.error(f"Error processing file {db_file.id}: {e}")
-        # File is saved but processing failed - will be retried later
-    
-    return FileUploadResponse(
-        file_id=db_file.id,
-        filename=file.filename,
-        message="File uploaded successfully and queued for processing"
-    )
 
 
 @router.get("/{file_id}", response_model=FileResponse)
@@ -190,9 +218,8 @@ async def delete_file(
             detail=f"File {file_id} not found"
         )
     
-    # Delete from vector database
-    from app.services.vector_db import vector_db
-    vector_db.delete_by_file(file_id)
+    # Note: FHIR resources are not deleted automatically
+    # They remain in FHIR server for audit trail
     
     # Delete physical file
     try:
@@ -221,9 +248,13 @@ async def reprocess_file(
             detail=f"File {file_id} not found"
         )
     
-    # Delete existing embeddings
-    from app.services.vector_db import vector_db
-    vector_db.delete_by_file(file_id)
+    # Get patient for FHIR ID
+    patient = db.query(Patient).filter(Patient.id == file.patient_id).first()
+    if not patient:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Patient {file.patient_id} not found"
+        )
     
     # Reset processing status
     file.processed = False
@@ -236,6 +267,7 @@ async def reprocess_file(
         db=db,
         file_id=file_id,
         patient_id=file.patient_id,
+        fhir_patient_id=patient.fhir_id,
         file_path=file.file_path,
         file_type=file.file_type.value
     )

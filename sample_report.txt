@@ -1,0 +1,55 @@
+MEDICAL LABORATORY REPORT
+=========================
+
+Patient Name: Vimla Bansal
+Patient ID: patient-002
+Date: January 15, 2025
+
+VITAL SIGNS
+-----------
+Blood Pressure: 135/88 mmHg
+Heart Rate: 78 bpm
+Temperature: 98.6°F
+Weight: 68 kg
+Height: 162 cm
+BMI: 25.9 kg/m2
+Oxygen Saturation: 98%
+
+LABORATORY RESULTS
+------------------
+Glucose (Fasting): 118 mg/dL
+HbA1c: 7.8%
+Total Cholesterol: 215 mg/dL
+HDL Cholesterol: 42 mg/dL
+LDL Cholesterol: 145 mg/dL
+Triglycerides: 185 mg/dL
+Hemoglobin: 12.8 g/dL
+Creatinine: 0.9 mg/dL
+
+DIAGNOSES
+---------
+- Type 2 Diabetes Mellitus (Active)
+- Dyslipidemia (Active)
+- Hypertension (Active)
+
+CURRENT MEDICATIONS
+-------------------
+- Metformin 500mg - Take twice daily with meals
+- Atorvastatin 20mg - Take once daily at bedtime
+- Amlodipine 5mg - Take once daily in the morning
+
+CLINICAL NOTES
+--------------
+Patient presents for routine follow-up. Blood sugar levels remain elevated despite current medication regimen. 
+HbA1c has increased from 7.2% to 7.8% over the past 3 months. Blood pressure is moderately controlled.
+Lipid profile shows improvement with statin therapy.
+
+Recommendations:
+1. Increase Metformin dosage to 1000mg twice daily
+2. Continue current antihypertensive medication
+3. Follow up in 3 months for repeat labs
+4. Dietary counseling recommended
+
+Dr. Sunita Gupta, MD
+Internal Medicine
+Medical Council of India Registration: 12345

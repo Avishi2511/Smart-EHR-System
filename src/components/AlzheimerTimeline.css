@@ -1,0 +1,102 @@
+/* Timeline SVG Animations */
+.timeline-svg {
+    overflow: visible;
+}
+
+.timeline-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw-path 3s ease-out forwards;
+}
+
+@keyframes draw-path {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Timeline Points */
+.timeline-point {
+    cursor: pointer;
+    transform-origin: center;
+    opacity: 0;
+    animation: point-appear 0.5s ease-out forwards;
+    transition: all 0.3s ease;
+}
+
+.timeline-point:hover {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+@keyframes point-appear {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.point-ring {
+    animation: ring-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ring-pulse {
+
+    0%,
+    100% {
+        r: 12;
+        opacity: 0.3;
+    }
+
+    50% {
+        r: 16;
+        opacity: 0.1;
+    }
+}
+
+/* Tooltip Card */
+.tooltip-card {
+    animation: tooltip-appear 0.3s ease-out;
+    min-width: 220px;
+}
+
+@keyframes tooltip-appear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Smooth transitions for background color changes */
+.relative {
+    transition: background 0.5s ease;
+}
+
+/* Stage background fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.stage-background {
+    transition: opacity 0.3s ease;
+}

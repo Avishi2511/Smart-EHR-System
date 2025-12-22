@@ -1,0 +1,90 @@
+﻿Total rows: 18437
+Total columns: 230
+
+Key columns (44):
+  - subject_id
+  - visit
+  - PHASE
+  - RID
+  - has_t1
+  - has_pet
+  - ADAS_TOTSCORE
+  - ADAS_TOTAL13
+  - CDR_GLOBAL
+  - CDR_SOB
+  - MMSE_SCORE
+  - PTGENDER
+  - PTEDUCAT
+  - PTDOB
+  - PTDOBYY
+  - APOE_GENOTYPE
+  - DIAGNOSIS
+  - DXNORM
+  - DXMCI
+  - DXAD
+  - VISDATE_x
+  - VISDATE_cdr
+  - VISDATE_y
+  - VISDATE
+  - BCADAS
+  - BCMMSE
+  - BCCDR
+  - EXAMDATE
+  - EXAMDATE_dx
+  - image_id
+
+================================================================================
+DATA COMPLETENESS ANALYSIS
+================================================================================
+
+Rows with both MRI and PET: 0
+Rows with ROI features: 0
+Rows with ROI + at least one score: 0
+
+Patients with 2+ complete visits: 0
+
+Diagnosis distribution (DXNORM):
+Series([], Name: count, dtype: int64)
+
+================================================================================
+PATIENTS BY CDR STAGE (Alzheimer's Severity)
+================================================================================
+
+
+Normal (CDR=0):
+  Total visits: 0
+  Patients with 2+ visits: 0
+
+Very Mild / MCI (CDR=0.5):
+  Total visits: 0
+  Patients with 2+ visits: 0
+
+Mild AD (CDR=1):
+  Total visits: 0
+  Patients with 2+ visits: 0
+
+Moderate AD (CDR=2):
+  Total visits: 0
+  Patients with 2+ visits: 0
+
+Severe AD (CDR=3):
+  Total visits: 0
+  Patients with 2+ visits: 0
+
+================================================================================
+SELECTING 5 PATIENTS PER STAGE
+================================================================================
+
+
+Normal (CDR=0): 0 patients
+
+MCI (CDR=0.5): 0 patients
+
+Mild AD (CDR=1): 0 patients
+
+Moderate AD (CDR=2): 0 patients
+
+================================================================================
+ANALYSIS COMPLETE
+================================================================================
+
