@@ -1,6 +1,7 @@
 export interface SmartConfiguration {
   authorization_endpoint: string;
   token_endpoint: string;
+  scopes_supported?: string[];
 }
 
 export async function fetchResourceFromEHR(
