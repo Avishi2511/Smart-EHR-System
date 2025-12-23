@@ -35,7 +35,8 @@ function useFetchQuestionnaires(): useFetchQuestionnairesReturnParams {
   const axiosInstance = useFormsServerAxios();
   const { data: bundle, isInitialLoading } = useQuery<Bundle>({
     queryKey: ["questionnaires" + numOfSearchEntries.toString(), queryUrl],
-    queryFn: () => fetchResourceFromEHR(axiosInstance, queryUrl)
+    queryFn: () => fetchResourceFromEHR(axiosInstance, queryUrl),
+    enabled: false // Disable since this hook is not actively used
   });
 
   const questionnaires: Questionnaire[] = useMemo(
