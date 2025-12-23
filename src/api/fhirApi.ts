@@ -1,3 +1,8 @@
+export interface SmartConfiguration {
+  authorization_endpoint: string;
+  token_endpoint: string;
+}
+
 export async function fetchResourceFromEHR(
   axiosInstance: any,
   requestUrl: string
@@ -8,7 +13,7 @@ export async function fetchResourceFromEHR(
     return response.data;
   } catch (error) {
     console.error('FHIR API Error:', error);
-    
+
     // Return a proper FHIR OperationOutcome for errors
     return {
       resourceType: "OperationOutcome",

@@ -33,10 +33,10 @@ function useFetchQuestionnaires(): useFetchQuestionnairesReturnParams {
   const queryUrl = `/Questionnaire?_count=${numOfSearchEntries}&_sort=-date&`;
 
   const axiosInstance = useFormsServerAxios();
-  const { data: bundle, isInitialLoading } = useQuery<Bundle>(
-    ["questionnaires" + numOfSearchEntries.toString(), queryUrl],
-    () => fetchResourceFromEHR(axiosInstance, queryUrl)
-  );
+  const { data: bundle, isInitialLoading } = useQuery<Bundle>({
+    queryKey: ["questionnaires" + numOfSearchEntries.toString(), queryUrl],
+    queryFn: () => fetchResourceFromEHR(axiosInstance, queryUrl)
+  });
 
   const questionnaires: Questionnaire[] = useMemo(
     () => getResources<Questionnaire>(bundle, "Questionnaire"),

@@ -66,7 +66,7 @@ const DocumentUpload = () => {
                 throw new Error('Upload failed');
             }
 
-            const result = await response.json();
+            // const result = await response.json();
 
             setUploadStatus({
                 status: 'success',

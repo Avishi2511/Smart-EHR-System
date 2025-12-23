@@ -116,6 +116,7 @@ function Observations() {
                 }
 
                 // Fetch observations
+                // const result = await response.json();
                 const response = await axios.get<ObservationListResponse>(
                     `http://localhost:8001/api/observations/${backendPatientId}`,
                     { params }
@@ -135,11 +136,11 @@ function Observations() {
         fetchObservations();
     }, [selectedPatient?.id, limitFilter, dateRangeFilter, typeFilter]);
 
-    const getObservationIcon = (type: string) => {
-        const config = OBSERVATION_CONFIG[type] || OBSERVATION_CONFIG.other;
-        const Icon = config.icon;
-        return <Icon className="h-4 w-4" />;
-    };
+    // const getObservationIcon = (type: string) => {
+    //     const config = OBSERVATION_CONFIG[type] || OBSERVATION_CONFIG.other;
+    //     const Icon = config.icon;
+    //     return <Icon className="h-4 w-4" />;
+    // };
 
     const getObservationBadge = (type: string) => {
         const config = OBSERVATION_CONFIG[type] || OBSERVATION_CONFIG.other;

@@ -1,0 +1,4363 @@
+[
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-be4c9145-e948-4a5a-9372-74d6e42a0c62",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "2339-0",
+          "display": "Glucose [Mass/volume] in Blood"
+        }
+      ],
+      "text": "Glucose [Mass/volume] in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-12-22 19:20:32.433224",
+    "valueQuantity": {
+      "value": 93.0,
+      "unit": "mg/dL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg/dL"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-67434416-b06b-427e-844b-a6378d99550b",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "4548-4",
+          "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+        }
+      ],
+      "text": "Hemoglobin A1c/Hemoglobin.total in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-12-22 19:20:32.433224",
+    "valueQuantity": {
+      "value": 6.4,
+      "unit": "%",
+      "system": "http://unitsofmeasure.org",
+      "code": "%"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-685b49c2-77f5-441b-bdd1-0468b73547a0",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "exam",
+            "display": "exam"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34117-2",
+          "display": "History and physical note"
+        }
+      ],
+      "text": "History and physical note"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-12-20 19:20:32.433224",
+    "valueString": "Routine checkup",
+    "note": [
+      {
+        "text": "Minor concerns addressed"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-24cb1c31-e8d2-4533-8956-649024d53e0c",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-12-12 19:20:32.433224",
+    "valueQuantity": {
+      "value": 83.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-c142a7b9-e8ce-4731-8a50-e0433b0ebe67",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-12-12 19:20:32.433224",
+    "valueQuantity": {
+      "value": 115.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-76b857cf-a527-4d58-bfe1-6e62455b09d2",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-12-12 19:20:32.433224",
+    "valueQuantity": {
+      "value": 83.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-a548f9a6-2983-4d21-a83c-cccac472ab64",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "procedure",
+            "display": "procedure"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34133-9",
+          "display": "Clinical Document"
+        }
+      ],
+      "text": "Clinical Document"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-11-22 19:20:32.433224",
+    "valueString": "Document uploaded",
+    "note": [
+      {
+        "text": "Lab results reviewed and filed"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-823c2825-633d-4423-8091-b034c9d50d9d",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-11-07 19:20:32.433224",
+    "valueQuantity": {
+      "value": 95.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-69c61a3a-1de6-4e20-9272-b78a3e544419",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-11-07 19:20:32.433224",
+    "valueQuantity": {
+      "value": 120.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-1c774cee-002d-4f7a-809d-833d1d757082",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-11-07 19:20:32.433224",
+    "valueQuantity": {
+      "value": 85.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-7b174795-6248-4c3e-8f85-1dd811deca5d",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "2339-0",
+          "display": "Glucose [Mass/volume] in Blood"
+        }
+      ],
+      "text": "Glucose [Mass/volume] in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-10-23 19:20:32.433224",
+    "valueQuantity": {
+      "value": 80.0,
+      "unit": "mg/dL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg/dL"
+    },
+    "note": [
+      {
+        "text": "Monitor glucose levels regularly"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-05e6e313-47c7-4cb3-86bd-553eb0528236",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "2160-0",
+          "display": "Creatinine [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "text": "Creatinine [Mass/volume] in Serum or Plasma"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-10-23 19:20:32.433224",
+    "valueQuantity": {
+      "value": 0.0,
+      "unit": "mg/dL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg/dL"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-ca6f0324-954e-4f0d-a010-e2e1eb2c30a2",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-10-22 19:20:32.433224",
+    "valueQuantity": {
+      "value": 87.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-39f49fae-9536-4d67-9dd5-a3ad9e97f3de",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-10-22 19:20:32.433224",
+    "valueQuantity": {
+      "value": 122.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-439b7688-3a31-474f-9e79-40679884af6d",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-10-22 19:20:32.433224",
+    "valueQuantity": {
+      "value": 73.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-df243537-ce29-439f-b87b-7949b58c9e13",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "procedure",
+            "display": "procedure"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34133-9",
+          "display": "Clinical Document"
+        }
+      ],
+      "text": "Clinical Document"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-09-23 19:20:32.433224",
+    "valueString": "Document uploaded",
+    "note": [
+      {
+        "text": "Discharge summary on file"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-060202e2-8ab4-4f7d-b180-72322f07f7af",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-09-21 19:20:32.433224",
+    "valueQuantity": {
+      "value": 85.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-2ffa3f9b-0748-4fe0-b60e-6d6df9b15736",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-09-21 19:20:32.433224",
+    "valueQuantity": {
+      "value": 114.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-ad29d2d8-f256-4734-b4e7-709647ca4506",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-09-21 19:20:32.433224",
+    "valueQuantity": {
+      "value": 76.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-74a51c20-6220-4268-9b1e-3b7afd7396ec",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "exam",
+            "display": "exam"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "70004-7",
+          "display": "Ophthalmology Evaluation note"
+        }
+      ],
+      "text": "Ophthalmology Evaluation note"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-09-11 19:20:32.433224",
+    "valueString": "Vision assessment"
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-c22a73b9-72ca-4616-b6b6-04dd363b3095",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "2339-0",
+          "display": "Glucose [Mass/volume] in Blood"
+        }
+      ],
+      "text": "Glucose [Mass/volume] in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-08-24 19:20:32.433224",
+    "valueQuantity": {
+      "value": 129.0,
+      "unit": "mg/dL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg/dL"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-1bfb658a-0e42-4b34-a240-4c7d09badd27",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "4548-4",
+          "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+        }
+      ],
+      "text": "Hemoglobin A1c/Hemoglobin.total in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-08-24 19:20:32.433224",
+    "valueQuantity": {
+      "value": 6.3,
+      "unit": "%",
+      "system": "http://unitsofmeasure.org",
+      "code": "%"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-8460968b-5a53-4d27-97f2-63c6843e4b15",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "2160-0",
+          "display": "Creatinine [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "text": "Creatinine [Mass/volume] in Serum or Plasma"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-08-24 19:20:32.433224",
+    "valueQuantity": {
+      "value": 0.0,
+      "unit": "mg/dL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg/dL"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-7ce9fb1d-e03a-4af5-ab27-fc98768d87d0",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-08-23 19:20:32.433224",
+    "valueQuantity": {
+      "value": 84.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-0f454501-4836-439c-8dcb-c2d53f1478c0",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-08-23 19:20:32.433224",
+    "valueQuantity": {
+      "value": 128.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-b2025856-65b2-43bb-ad95-78053f97d6d2",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-08-23 19:20:32.433224",
+    "valueQuantity": {
+      "value": 82.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-287fed3b-5909-4ccf-ba5f-89474e07d35e",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "procedure",
+            "display": "procedure"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34133-9",
+          "display": "Clinical Document"
+        }
+      ],
+      "text": "Clinical Document"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-07-25 19:20:32.433224",
+    "valueString": "Document uploaded",
+    "note": [
+      {
+        "text": "Imaging report archived"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-e943c170-19de-4ab4-a335-c558d4eef003",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-07-16 19:20:32.433224",
+    "valueQuantity": {
+      "value": 69.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-6c9040b9-e8c0-4d24-9d2a-09d195a4d064",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-07-16 19:20:32.433224",
+    "valueQuantity": {
+      "value": 127.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-9c9a7140-022f-4815-9bdf-728f8ec54c63",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-07-16 19:20:32.433224",
+    "valueQuantity": {
+      "value": 80.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-1d8e73c3-349f-423c-aa60-541e8f4d64e3",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "2339-0",
+          "display": "Glucose [Mass/volume] in Blood"
+        }
+      ],
+      "text": "Glucose [Mass/volume] in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-06-25 19:20:32.433224",
+    "valueQuantity": {
+      "value": 101.0,
+      "unit": "mg/dL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg/dL"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-ecd4ceb4-e4d3-4b3d-8210-e5f8989386a3",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "4548-4",
+          "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+        }
+      ],
+      "text": "Hemoglobin A1c/Hemoglobin.total in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-06-25 19:20:32.433224",
+    "valueQuantity": {
+      "value": 5.5,
+      "unit": "%",
+      "system": "http://unitsofmeasure.org",
+      "code": "%"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-42f87194-2009-4fed-a84f-640c9407056b",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "2160-0",
+          "display": "Creatinine [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "text": "Creatinine [Mass/volume] in Serum or Plasma"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-06-25 19:20:32.433224",
+    "valueQuantity": {
+      "value": 1.0,
+      "unit": "mg/dL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg/dL"
+    },
+    "note": [
+      {
+        "text": "Slight elevation, monitor hydration"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-44c34ee0-c0b8-41f8-aa08-4c04f50b0bc7",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "imaging",
+            "display": "imaging"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "24627-2",
+          "display": "MRI Brain"
+        }
+      ],
+      "text": "MRI Brain"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-06-25 19:20:32.433224",
+    "valueString": "Scan completed",
+    "note": [
+      {
+        "text": "Hippocampal volume within normal limits"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-b25b2a14-c996-4f61-a043-15fdf286295e",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-06-20 19:20:32.433224",
+    "valueQuantity": {
+      "value": 72.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-051f61a3-ab18-4b21-aa3f-35c655480217",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-06-20 19:20:32.433224",
+    "valueQuantity": {
+      "value": 122.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-b543521b-36c4-422e-98ff-6323c13d4eef",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-06-20 19:20:32.433224",
+    "valueQuantity": {
+      "value": 73.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-43dc8349-e931-4083-8ed3-bedd0a0b9da5",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "exam",
+            "display": "exam"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "72107-6",
+          "display": "Cognitive function assessment"
+        }
+      ],
+      "text": "Cognitive function assessment"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-06-06 19:20:32.433224",
+    "valueString": "Cognitive assessment",
+    "note": [
+      {
+        "text": "Recommend cognitive exercises"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-dce5cf41-fecf-4662-b56d-9588649e8e82",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "procedure",
+            "display": "procedure"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34133-9",
+          "display": "Clinical Document"
+        }
+      ],
+      "text": "Clinical Document"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-05-26 19:20:32.433224",
+    "valueString": "Document uploaded"
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-b196f073-ca1c-4597-be10-11bffea57650",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-05-20 19:20:32.433224",
+    "valueQuantity": {
+      "value": 78.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-751420a8-9ce9-439a-8eb5-32fabaf88521",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-05-20 19:20:32.433224",
+    "valueQuantity": {
+      "value": 117.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    },
+    "note": [
+      {
+        "text": "Borderline hypertension, lifestyle modifications advised"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-6cc56201-2c18-4ea0-b9bf-e5a6504c2c80",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-05-20 19:20:32.433224",
+    "valueQuantity": {
+      "value": 70.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-914bf0ed-ebc6-4baf-9f00-25b393a0452c",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "2339-0",
+          "display": "Glucose [Mass/volume] in Blood"
+        }
+      ],
+      "text": "Glucose [Mass/volume] in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-04-26 19:20:32.433224",
+    "valueQuantity": {
+      "value": 117.0,
+      "unit": "mg/dL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg/dL"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-e3fad38a-58be-4c88-ba40-2bf984ee4b29",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "4548-4",
+          "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+        }
+      ],
+      "text": "Hemoglobin A1c/Hemoglobin.total in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-04-26 19:20:32.433224",
+    "valueQuantity": {
+      "value": 5.8,
+      "unit": "%",
+      "system": "http://unitsofmeasure.org",
+      "code": "%"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-d0172e48-2b31-4ca5-bc4d-a2a990d5ddb4",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-04-16 19:20:32.433224",
+    "valueQuantity": {
+      "value": 72.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    },
+    "note": [
+      {
+        "text": "Consider beta-blocker if persistent"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-f63957bc-2cbd-45c9-a2ab-e262abdf920e",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-04-16 19:20:32.433224",
+    "valueQuantity": {
+      "value": 120.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-ad6f3366-7833-404f-8e7c-a2ecf2fecef1",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-04-16 19:20:32.433224",
+    "valueQuantity": {
+      "value": 82.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-f7b3bf5f-5567-4dcb-a489-02962f1fdab1",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "procedure",
+            "display": "procedure"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34133-9",
+          "display": "Clinical Document"
+        }
+      ],
+      "text": "Clinical Document"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-03-27 19:20:32.433224",
+    "valueString": "Document uploaded",
+    "note": [
+      {
+        "text": "Discharge summary on file"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-0f7403c0-e665-46af-840a-ec2ddaed90db",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-03-15 19:20:32.433224",
+    "valueQuantity": {
+      "value": 84.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-5fc5ca6a-891c-4b69-99e6-e75a50bfc65a",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-03-15 19:20:32.433224",
+    "valueQuantity": {
+      "value": 135.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-a7487716-2d62-43eb-bb6d-42efabdb0b59",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-03-15 19:20:32.433224",
+    "valueQuantity": {
+      "value": 76.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-4bd4e3ec-32c6-44d6-8f15-2a391b8105a9",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "exam",
+            "display": "exam"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "70004-7",
+          "display": "Ophthalmology Evaluation note"
+        }
+      ],
+      "text": "Ophthalmology Evaluation note"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-03-12 19:20:32.433224",
+    "valueString": "Vision assessment",
+    "note": [
+      {
+        "text": "Early cataract formation noted"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-73fb8abd-8b2d-497a-832c-6ed369230165",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "2339-0",
+          "display": "Glucose [Mass/volume] in Blood"
+        }
+      ],
+      "text": "Glucose [Mass/volume] in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-02-25 19:20:32.433224",
+    "valueQuantity": {
+      "value": 77.0,
+      "unit": "mg/dL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg/dL"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-99f335e2-7d51-42f3-8ada-29396df4af39",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "4548-4",
+          "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+        }
+      ],
+      "text": "Hemoglobin A1c/Hemoglobin.total in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-02-25 19:20:32.433224",
+    "valueQuantity": {
+      "value": 6.5,
+      "unit": "%",
+      "system": "http://unitsofmeasure.org",
+      "code": "%"
+    },
+    "note": [
+      {
+        "text": "Consider medication adjustment"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-66bbce65-6ccb-4726-8f93-544a2d97225e",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-02-22 19:20:32.433224",
+    "valueQuantity": {
+      "value": 100.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-23432d34-2290-41b8-a0ff-41cc4acf70c2",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-02-22 19:20:32.433224",
+    "valueQuantity": {
+      "value": 115.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-41cb617c-8d42-455e-a5d9-c31f60f8d40f",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-02-22 19:20:32.433224",
+    "valueQuantity": {
+      "value": 74.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-e0d1c140-dc62-4ebf-b8f2-0ecf5159aa6e",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-01-13 19:20:32.433224",
+    "valueQuantity": {
+      "value": 76.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-a95ad9a7-13d3-4f0a-8f6d-2f15243674a3",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-01-13 19:20:32.433224",
+    "valueQuantity": {
+      "value": 114.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-1ea7d6b8-0f55-4d0a-8282-fd83b2b5a323",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2025-01-13 19:20:32.433224",
+    "valueQuantity": {
+      "value": 81.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-520808b2-66f6-4673-96e3-f70eb35a80ad",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "2339-0",
+          "display": "Glucose [Mass/volume] in Blood"
+        }
+      ],
+      "text": "Glucose [Mass/volume] in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-12-27 19:20:32.433224",
+    "valueQuantity": {
+      "value": 121.0,
+      "unit": "mg/dL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg/dL"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-77529be6-e373-46d6-9a3e-622509dd0c16",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "4548-4",
+          "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+        }
+      ],
+      "text": "Hemoglobin A1c/Hemoglobin.total in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-12-27 19:20:32.433224",
+    "valueQuantity": {
+      "value": 6.8,
+      "unit": "%",
+      "system": "http://unitsofmeasure.org",
+      "code": "%"
+    },
+    "note": [
+      {
+        "text": "HbA1c trending upward, increase monitoring"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-854544e5-212b-4a54-81bf-47e8f49a12df",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "imaging",
+            "display": "imaging"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "24627-2",
+          "display": "MRI Brain"
+        }
+      ],
+      "text": "MRI Brain"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-12-27 19:20:32.433224",
+    "valueString": "Scan completed",
+    "note": [
+      {
+        "text": "Small vessel disease changes present"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-3c711897-fb56-4a8a-bf40-57d7fc56cfd0",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "procedure",
+            "display": "procedure"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34133-9",
+          "display": "Clinical Document"
+        }
+      ],
+      "text": "Clinical Document"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-12-27 19:20:32.433224",
+    "valueString": "Document uploaded"
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-21e4561c-f58a-45c8-b23c-04949f42fecc",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-12-26 19:20:32.433224",
+    "valueQuantity": {
+      "value": 76.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-fec072f4-33e3-44e3-9274-fefb5be7600d",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-12-26 19:20:32.433224",
+    "valueQuantity": {
+      "value": 132.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-216d5181-5ed6-4a7e-a734-7461521d2cb4",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-12-26 19:20:32.433224",
+    "valueQuantity": {
+      "value": 81.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-20f52003-ab00-430a-ab35-0ccdde368fdb",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "exam",
+            "display": "exam"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34879-7",
+          "display": "Otolaryngology Evaluation note"
+        }
+      ],
+      "text": "Otolaryngology Evaluation note"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-12-13 19:20:32.433224",
+    "valueString": "ENT examination"
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-9e347f73-1fb4-42b5-a753-61877da76283",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-11-24 19:20:32.433224",
+    "valueQuantity": {
+      "value": 60.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-2a9babc0-c053-41bc-90a1-849b2c13cb5e",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-11-24 19:20:32.433224",
+    "valueQuantity": {
+      "value": 135.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-7d42c56a-446a-4b9b-8a12-4e7e9b977f44",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-11-24 19:20:32.433224",
+    "valueQuantity": {
+      "value": 80.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-38b2c903-4409-4abc-a206-6b788c2f89b1",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-10-19 19:20:32.433224",
+    "valueQuantity": {
+      "value": 74.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-5203d0b4-bb1c-4384-9680-c9fcf2b157b4",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-10-19 19:20:32.433224",
+    "valueQuantity": {
+      "value": 129.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-7e82d730-9f2d-4d08-8445-39b9e26dc4ea",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-10-19 19:20:32.433224",
+    "valueQuantity": {
+      "value": 73.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-fd30c04b-0f2f-46a1-b255-65ebcbd6f387",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "procedure",
+            "display": "procedure"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34133-9",
+          "display": "Clinical Document"
+        }
+      ],
+      "text": "Clinical Document"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-09-28 19:20:32.433224",
+    "valueString": "Document uploaded",
+    "note": [
+      {
+        "text": "Consultation notes from specialist"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-c1e2c2b5-b108-47e5-940f-d724ed75a46a",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "exam",
+            "display": "exam"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "70004-7",
+          "display": "Ophthalmology Evaluation note"
+        }
+      ],
+      "text": "Ophthalmology Evaluation note"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-09-25 19:20:32.433224",
+    "valueString": "Vision assessment"
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-18bccddb-45f0-423e-bea7-954665f0ceba",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-09-21 19:20:32.433224",
+    "valueQuantity": {
+      "value": 86.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-2da43f50-5102-4185-86b3-71b5e2e7f2c7",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-09-21 19:20:32.433224",
+    "valueQuantity": {
+      "value": 130.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-70b789ed-b802-45c8-acec-6838e233223b",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-09-21 19:20:32.433224",
+    "valueQuantity": {
+      "value": 85.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-7c41e010-2dc1-4c7c-8e60-4fba18c2dc89",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "4548-4",
+          "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+        }
+      ],
+      "text": "Hemoglobin A1c/Hemoglobin.total in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-08-29 19:20:32.433224",
+    "valueQuantity": {
+      "value": 6.3,
+      "unit": "%",
+      "system": "http://unitsofmeasure.org",
+      "code": "%"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-cf0cbd49-74a9-4d22-bf5d-7dbb7af52cfb",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "2160-0",
+          "display": "Creatinine [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "text": "Creatinine [Mass/volume] in Serum or Plasma"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-08-29 19:20:32.433224",
+    "valueQuantity": {
+      "value": 1.0,
+      "unit": "mg/dL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg/dL"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-00b83855-6763-4c62-b8bd-182b7c114669",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-08-26 19:20:32.433224",
+    "valueQuantity": {
+      "value": 75.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-241bf9e2-53df-4d7c-998a-216641937843",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-08-26 19:20:32.433224",
+    "valueQuantity": {
+      "value": 125.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-2519d60e-d794-4491-bda0-8e8fc8aade01",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-08-26 19:20:32.433224",
+    "valueQuantity": {
+      "value": 72.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-b2db76bf-e63f-4422-95c9-21465d8aef6c",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-07-28 19:20:32.433224",
+    "valueQuantity": {
+      "value": 78.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-a56fa7b8-b74e-440a-9f78-433bd42f6115",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-07-28 19:20:32.433224",
+    "valueQuantity": {
+      "value": 122.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    },
+    "note": [
+      {
+        "text": "Excellent BP control"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-4f972d2c-72a5-41d7-8043-67476c723d06",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-07-28 19:20:32.433224",
+    "valueQuantity": {
+      "value": 74.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-0556a426-08bc-4ee3-a45c-6694ccf147d2",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "4548-4",
+          "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+        }
+      ],
+      "text": "Hemoglobin A1c/Hemoglobin.total in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-06-30 19:20:32.433224",
+    "valueQuantity": {
+      "value": 6.5,
+      "unit": "%",
+      "system": "http://unitsofmeasure.org",
+      "code": "%"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-86cde13d-16c4-42b9-8569-ef669a6ddcde",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "2160-0",
+          "display": "Creatinine [Mass/volume] in Serum or Plasma"
+        }
+      ],
+      "text": "Creatinine [Mass/volume] in Serum or Plasma"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-06-30 19:20:32.433224",
+    "valueQuantity": {
+      "value": 0.0,
+      "unit": "mg/dL",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg/dL"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-1f19192c-0adf-40a7-8767-02c6ff92c3dc",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "imaging",
+            "display": "imaging"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "44139-4",
+          "display": "PET scan"
+        }
+      ],
+      "text": "PET scan"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-06-30 19:20:32.433224",
+    "valueString": "Scan completed"
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-161f46e8-1e17-4e08-9b4c-f1d34cb4e923",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "procedure",
+            "display": "procedure"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34133-9",
+          "display": "Clinical Document"
+        }
+      ],
+      "text": "Clinical Document"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-06-30 19:20:32.433224",
+    "valueString": "Document uploaded"
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-28c68850-30b1-4144-9719-160e12adeec9",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-06-28 19:20:32.433224",
+    "valueQuantity": {
+      "value": 91.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-7470101e-7872-4355-bc23-28218cae724f",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-06-28 19:20:32.433224",
+    "valueQuantity": {
+      "value": 125.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-6ef8a264-a3a9-4d21-983a-b707dbc59b86",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-06-28 19:20:32.433224",
+    "valueQuantity": {
+      "value": 80.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-1a736289-8ad7-4fbb-b4a5-acc301d01de8",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "exam",
+            "display": "exam"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "70004-7",
+          "display": "Ophthalmology Evaluation note"
+        }
+      ],
+      "text": "Ophthalmology Evaluation note"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-06-19 19:20:32.433224",
+    "valueString": "Vision assessment"
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-80bd617e-06d0-473d-9910-eeafdf0c3d21",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-05-19 19:20:32.433224",
+    "valueQuantity": {
+      "value": 71.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-584885ac-b5f1-4699-8af2-c9326bbdbf15",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-05-19 19:20:32.433224",
+    "valueQuantity": {
+      "value": 126.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-308b8d1f-53d2-4e22-80cb-e70efc2389d1",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-05-19 19:20:32.433224",
+    "valueQuantity": {
+      "value": 80.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-0fd2274f-40b1-46d1-8e14-6355bf5b9d9c",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "4548-4",
+          "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+        }
+      ],
+      "text": "Hemoglobin A1c/Hemoglobin.total in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-05-01 19:20:32.433224",
+    "valueQuantity": {
+      "value": 5.8,
+      "unit": "%",
+      "system": "http://unitsofmeasure.org",
+      "code": "%"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-2c4df3ce-73a8-45d2-83a8-7defed651b29",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-04-19 19:20:32.433224",
+    "valueQuantity": {
+      "value": 79.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-c372bd81-feb7-44a6-a26d-1aea1322093a",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-04-19 19:20:32.433224",
+    "valueQuantity": {
+      "value": 125.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    },
+    "note": [
+      {
+        "text": "Borderline hypertension, lifestyle modifications advised"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-e05076a1-436a-4c0e-a2b0-0638acb77fc0",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-04-19 19:20:32.433224",
+    "valueQuantity": {
+      "value": 85.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-39e99343-e00e-40ad-978b-b1665c8ad034",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "procedure",
+            "display": "procedure"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34133-9",
+          "display": "Clinical Document"
+        }
+      ],
+      "text": "Clinical Document"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-04-01 19:20:32.433224",
+    "valueString": "Document uploaded",
+    "note": [
+      {
+        "text": "Discharge summary on file"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-3ab962d9-ec48-4ebf-93df-d60446bc6f7a",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-03-24 19:20:32.433224",
+    "valueQuantity": {
+      "value": 96.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-516fcb32-51ac-48d4-96a4-ea9aedb95de3",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-03-24 19:20:32.433224",
+    "valueQuantity": {
+      "value": 110.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-1b7b46c5-a1c1-471e-8d86-06534baf43a4",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-03-24 19:20:32.433224",
+    "valueQuantity": {
+      "value": 76.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-5e741563-6d52-4076-91c9-43203dbccf72",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "exam",
+            "display": "exam"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34879-7",
+          "display": "Otolaryngology Evaluation note"
+        }
+      ],
+      "text": "Otolaryngology Evaluation note"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-03-15 19:20:32.433224",
+    "valueString": "ENT examination"
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-e7e5c9ee-5a60-4206-a854-ec5f49d9d8f8",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "laboratory",
+            "display": "laboratory"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "4548-4",
+          "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+        }
+      ],
+      "text": "Hemoglobin A1c/Hemoglobin.total in Blood"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-03-02 19:20:32.433224",
+    "valueQuantity": {
+      "value": 6.9,
+      "unit": "%",
+      "system": "http://unitsofmeasure.org",
+      "code": "%"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-8094bb0a-3b38-46d2-a9b1-0f07cdaf7f35",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-03-02 19:20:32.433224",
+    "valueQuantity": {
+      "value": 95.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-c16fc525-6cb8-4249-851a-3116d2ad1ac9",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-03-02 19:20:32.433224",
+    "valueQuantity": {
+      "value": 118.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-22587ec5-b7b3-43f4-b502-cb91897b9db5",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-03-02 19:20:32.433224",
+    "valueQuantity": {
+      "value": 78.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-e42c7cc5-f2cb-44e8-a91e-158586736767",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        }
+      ],
+      "text": "Heart rate"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-01-23 19:20:32.433224",
+    "valueQuantity": {
+      "value": 97.0,
+      "unit": "bpm",
+      "system": "http://unitsofmeasure.org",
+      "code": "bpm"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-9bdc8b65-e91b-4be7-a6be-61e09e2d84d8",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8480-6",
+          "display": "Systolic blood pressure"
+        }
+      ],
+      "text": "Systolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-01-23 19:20:32.433224",
+    "valueQuantity": {
+      "value": 113.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-c54eeeb4-df7e-4af3-8216-498f2f9120ae",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "vital-signs",
+            "display": "vital-signs"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "8462-4",
+          "display": "Diastolic blood pressure"
+        }
+      ],
+      "text": "Diastolic blood pressure"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-01-23 19:20:32.433224",
+    "valueQuantity": {
+      "value": 85.0,
+      "unit": "mmHg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mmHg"
+    }
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-607039a7-1a74-4845-b770-a1eb2be6f14d",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "imaging",
+            "display": "imaging"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "24627-2",
+          "display": "MRI Brain"
+        }
+      ],
+      "text": "MRI Brain"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-01-02 19:20:32.433224",
+    "valueString": "Scan completed",
+    "note": [
+      {
+        "text": "Small vessel disease changes present"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-3b37cb73-78e9-40cd-b188-84412171c465",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "procedure",
+            "display": "procedure"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "34133-9",
+          "display": "Clinical Document"
+        }
+      ],
+      "text": "Clinical Document"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2024-01-02 19:20:32.433224",
+    "valueString": "Document uploaded",
+    "note": [
+      {
+        "text": "Discharge summary on file"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-0abba2fa-2bc4-4d1a-a9ca-47c3990df0d5",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "imaging",
+            "display": "imaging"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "24627-2",
+          "display": "CT scan"
+        }
+      ],
+      "text": "CT scan"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2023-07-06 19:20:32.433224",
+    "valueString": "Scan completed",
+    "note": [
+      {
+        "text": "Age-appropriate changes only"
+      }
+    ]
+  },
+  {
+    "resourceType": "Observation",
+    "id": "obs-patient002-4aa18501-e8a4-4f06-ad22-e1465647f5c6",
+    "status": "final",
+    "category": [
+      {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+            "code": "imaging",
+            "display": "imaging"
+          }
+        ]
+      }
+    ],
+    "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "44139-4",
+          "display": "PET scan"
+        }
+      ],
+      "text": "PET scan"
+    },
+    "subject": {
+      "reference": "Patient/patient-002",
+      "display": "Priya Sharma"
+    },
+    "effectiveDateTime": "2023-01-07 19:20:32.433224",
+    "valueString": "Scan completed",
+    "note": [
+      {
+        "text": "Mild hypometabolism in temporal lobes"
+      }
+    ]
+  }
+]

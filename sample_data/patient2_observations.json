@@ -1,0 +1,254 @@
+[
+    {
+        "resourceType": "Observation",
+        "id": "obs-patient2-bp-1",
+        "status": "final",
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                        "code": "vital-signs",
+                        "display": "Vital Signs"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "85354-9",
+                    "display": "Blood pressure panel"
+                }
+            ],
+            "text": "Blood Pressure"
+        },
+        "subject": {
+            "reference": "Patient/2",
+            "display": "Vimla Bansal"
+        },
+        "effectiveDateTime": "2024-12-20T10:30:00Z",
+        "component": [
+            {
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "8480-6",
+                            "display": "Systolic blood pressure"
+                        }
+                    ]
+                },
+                "valueQuantity": {
+                    "value": 135,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                }
+            },
+            {
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "8462-4",
+                            "display": "Diastolic blood pressure"
+                        }
+                    ]
+                },
+                "valueQuantity": {
+                    "value": 85,
+                    "unit": "mmHg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mm[Hg]"
+                }
+            }
+        ]
+    },
+    {
+        "resourceType": "Observation",
+        "id": "obs-patient2-glucose-1",
+        "status": "final",
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                        "code": "laboratory",
+                        "display": "Laboratory"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "2339-0",
+                    "display": "Glucose [Mass/volume] in Blood"
+                }
+            ],
+            "text": "Blood Glucose"
+        },
+        "subject": {
+            "reference": "Patient/2",
+            "display": "Vimla Bansal"
+        },
+        "effectiveDateTime": "2024-12-20T10:30:00Z",
+        "valueQuantity": {
+            "value": 145,
+            "unit": "mg/dL",
+            "system": "http://unitsofmeasure.org",
+            "code": "mg/dL"
+        }
+    },
+    {
+        "resourceType": "Observation",
+        "id": "obs-patient2-weight-1",
+        "status": "final",
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                        "code": "vital-signs",
+                        "display": "Vital Signs"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "29463-7",
+                    "display": "Body Weight"
+                }
+            ],
+            "text": "Weight"
+        },
+        "subject": {
+            "reference": "Patient/2",
+            "display": "Vimla Bansal"
+        },
+        "effectiveDateTime": "2024-12-20T10:30:00Z",
+        "valueQuantity": {
+            "value": 68,
+            "unit": "kg",
+            "system": "http://unitsofmeasure.org",
+            "code": "kg"
+        }
+    },
+    {
+        "resourceType": "Observation",
+        "id": "obs-patient2-height-1",
+        "status": "final",
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                        "code": "vital-signs",
+                        "display": "Vital Signs"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "8302-2",
+                    "display": "Body Height"
+                }
+            ],
+            "text": "Height"
+        },
+        "subject": {
+            "reference": "Patient/2",
+            "display": "Vimla Bansal"
+        },
+        "effectiveDateTime": "2024-12-20T10:30:00Z",
+        "valueQuantity": {
+            "value": 160,
+            "unit": "cm",
+            "system": "http://unitsofmeasure.org",
+            "code": "cm"
+        }
+    },
+    {
+        "resourceType": "Observation",
+        "id": "obs-patient2-temp-1",
+        "status": "final",
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                        "code": "vital-signs",
+                        "display": "Vital Signs"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "8310-5",
+                    "display": "Body temperature"
+                }
+            ],
+            "text": "Temperature"
+        },
+        "subject": {
+            "reference": "Patient/2",
+            "display": "Vimla Bansal"
+        },
+        "effectiveDateTime": "2024-12-20T10:30:00Z",
+        "valueQuantity": {
+            "value": 37.2,
+            "unit": "Cel",
+            "system": "http://unitsofmeasure.org",
+            "code": "Cel"
+        }
+    },
+    {
+        "resourceType": "Observation",
+        "id": "obs-patient2-heartrate-1",
+        "status": "final",
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                        "code": "vital-signs",
+                        "display": "Vital Signs"
+                    }
+                ]
+            }
+        ],
+        "code": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "8867-4",
+                    "display": "Heart rate"
+                }
+            ],
+            "text": "Heart Rate"
+        },
+        "subject": {
+            "reference": "Patient/2",
+            "display": "Vimla Bansal"
+        },
+        "effectiveDateTime": "2024-12-20T10:30:00Z",
+        "valueQuantity": {
+            "value": 78,
+            "unit": "beats/minute",
+            "system": "http://unitsofmeasure.org",
+            "code": "/min"
+        }
+    }
+]
