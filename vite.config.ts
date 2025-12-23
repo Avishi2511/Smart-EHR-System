@@ -19,4 +19,7 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    include: ['@emotion/react', '@emotion/styled', '@emotion/cache', '@mui/icons-material'],
+  },
 });
