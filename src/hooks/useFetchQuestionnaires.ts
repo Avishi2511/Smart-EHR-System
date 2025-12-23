@@ -32,7 +32,7 @@ function useFetchQuestionnaires(): useFetchQuestionnairesReturnParams {
 
   const queryUrl = `/Questionnaire?_count=${numOfSearchEntries}&_sort=-date&`;
 
-  const axiosInstance = useFormsServerAxios();
+  const axiosInstance = useFormsServerAxios(import.meta.env.VITE_FHIR_SERVER_URL || 'http://localhost:8000');
   const { data: bundle, isInitialLoading } = useQuery<Bundle>({
     queryKey: ["questionnaires" + numOfSearchEntries.toString(), queryUrl],
     queryFn: () => fetchResourceFromEHR(axiosInstance, queryUrl),
